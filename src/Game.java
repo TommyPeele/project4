@@ -13,9 +13,9 @@
 // Description: A game designed to teach teenagers about the dangers of texting and driving.
 //
 
-public class Game {
+public class Game{
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		return;
 	}
 
