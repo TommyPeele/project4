@@ -15,6 +15,13 @@
 
 public class Game{
 
+	StartScreen startScreen = new StartScreen();
+	GameScreen gameScreen = new GameScreen();
+	GameOverScreen gameOverScreen = new GameOverScreen();
+	
+	public static final int WINDOW_WIDTH = 0;
+	public static final int WINDOW_HEIGHT = 0;
+	
 	public static void main(String[] args){
 		return;
 	}
