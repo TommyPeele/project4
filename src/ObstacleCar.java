@@ -1,4 +1,4 @@
 
-public class ObstacleCar extends Car {
+public class ObstacleCar extends Car{
 
 }

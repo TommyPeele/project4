@@ -1,4 +1,4 @@
 
-public class GameScreen {
+public class GameScreen{
 
 }

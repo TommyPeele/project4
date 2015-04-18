@@ -1,4 +1,4 @@
 
-public class TextEntry {
+public class TextEntry{
 
 }

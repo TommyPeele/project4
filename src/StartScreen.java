@@ -1,4 +1,4 @@
 
-public class StartScreen {
+public class StartScreen{
 
 }

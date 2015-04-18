@@ -1,4 +1,4 @@
 
-public class PlayerCar extends Car {
+public class PlayerCar extends Car{
 
 }
