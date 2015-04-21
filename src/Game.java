@@ -13,22 +13,22 @@
 // Description: A game designed to teach teenagers about the dangers of texting and driving.
 //
 
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 
 public class Game extends JFrame implements Runnable{
 
-	StartScreen startScreen;
-	GameScreen gameScreen;
-	GameOverScreen gameOverScreen;
+	Screen currentScreen;
+	
+	private Thread gameThread;
 	
 	private static final long serialVersionUID = 0;
 	
 	public Game(){
-		startScreen = new StartScreen(this);
-		gameScreen = new GameScreen(this);
-		gameOverScreen = new GameOverScreen(this);
+		currentScreen = new GameScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
 		
-		add(gameScreen);
+		add(currentScreen);
 		pack();
 	}
 	
@@ -39,14 +39,25 @@ public class Game extends JFrame implements Runnable{
 		setVisible(true);
 	}
 	
+	public void start(){
+		gameThread = new Thread(this);
+		gameThread.start();
+	}
+	
 	@Override
 	public void run(){
-		return;
+		currentScreen.run();
 	}
 	
 	public static void main(String[] args){
-		Game game = new Game();
-		game.createWindow();
+		EventQueue.invokeLater(new Runnable(){
+			@Override
+			public void run(){
+				Game game = new Game();
+				game.createWindow();
+				game.start();
+			}
+		});
 	}
 
 }

@@ -21,14 +21,16 @@ public abstract class Screen extends JPanel implements Runnable{
 		setDoubleBuffered(true);
 	}
 	
-	/*@Override
+	@Override
 	public void paint(Graphics graphic){
 		super.paint(graphic);
-	}*/
+	}
 	
 	@Override
 	public void run(){
-		return;
+		while(true){
+			repaint();
+		}
 	}
 
 }

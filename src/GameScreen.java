@@ -12,15 +12,17 @@ public class GameScreen extends Screen{
 	public GameScreen(Game game){
 		super(game);
 		setBackground(Color.GREEN.darker());
+		
+		road = new Road(this);
 	}
 	
-	/*@Override
+	@Override
 	public void paint(Graphics graphic){
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		road.paint(graphic2D);
-	}*/
+	}
 
 }
