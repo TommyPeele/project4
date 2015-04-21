@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 public class GameScreen extends Screen{
 
 	private Road road;
+	private PlayerCar playerCar;
 	
 	private static final long serialVersionUID = 0;
 	
@@ -14,6 +15,7 @@ public class GameScreen extends Screen{
 		setBackground(Color.GREEN.darker());
 		
 		road = new Road(this);
+		playerCar = new PlayerCar(this);
 	}
 	
 	@Override
@@ -23,6 +25,7 @@ public class GameScreen extends Screen{
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		road.paint(graphic2D);
+		playerCar.paint(graphic2D);
 	}
 
 }
