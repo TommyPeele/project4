@@ -8,6 +8,8 @@ public class GameScreen extends Screen{
 	private Road road;
 	private PlayerCar playerCar;
 	
+	private static final int DELAY = 100;
+	
 	private static final long serialVersionUID = 0;
 	
 	public GameScreen(Game game){
@@ -32,6 +34,12 @@ public class GameScreen extends Screen{
 	public void run(){
 		while(true){
 			repaint();
+			
+			try{
+				Thread.sleep(DELAY);
+			} catch(InterruptedException e){
+				System.out.println("Interrupted: " + e.getMessage());
+			}
 		}
 	}
 
