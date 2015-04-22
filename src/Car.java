@@ -1,3 +1,4 @@
+import java.awt.Graphics2D;
 
 public abstract class Car{
 	
@@ -31,5 +32,7 @@ public abstract class Car{
 	public void setY(int y){
 		this.y = y;
 	}
+	
+	public abstract void paint(Graphics2D graphic2D);
 
 }

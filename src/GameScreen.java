@@ -27,5 +27,12 @@ public class GameScreen extends Screen{
 		road.paint(graphic2D);
 		playerCar.paint(graphic2D);
 	}
+	
+	@Override
+	public void run(){
+		while(true){
+			repaint();
+		}
+	}
 
 }

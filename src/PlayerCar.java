@@ -19,5 +19,5 @@ public class PlayerCar extends Car{
 		graphic2D.setColor(Color.BLUE);
 		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
-
+	
 }
