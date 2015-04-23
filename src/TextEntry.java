@@ -1,24 +1,56 @@
 import java.awt.Color;
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
+//import java.awt.GradientPaint;
+//import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
+import java.awt.event.KeyEvent;
+//import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
+//import javax.swing.ImageIcon;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
 
 public class TextEntry{
 	
+	private boolean visible = false;
 	private String messageToType = "Message To Type";
 	public String userMessage = "";
 	private GameScreen gameScreen;
 	
 	public TextEntry(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
+	}
+	
+	public boolean isVisible(){
+		return visible;
+	}
+	
+	public void keyPressed(KeyEvent event){
+		if(!visible){
+			if(event.getKeyCode() == KeyEvent.VK_DOWN)
+				visible = true;
+		}
+		else{
+			switch(event.getKeyCode()){
+			case KeyEvent.VK_DOWN:
+				visible = false;
+				break;
+			case KeyEvent.VK_BACK_SPACE:
+				if(userMessage.length() != 0)
+					userMessage = userMessage.substring(0, userMessage.length() - 1);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	
+	public void keyTyped(KeyEvent event){
+		if(visible){
+			char newCharacter = event.getKeyChar();
+			userMessage = userMessage + newCharacter;
+		}
 	}
 	
 	public void paint(Graphics2D graphics2D){

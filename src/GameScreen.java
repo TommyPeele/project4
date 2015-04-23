@@ -15,15 +15,12 @@ public class GameScreen extends Screen{
 	
 	private static final int DELAY = 100;
 	
-	// The Game Screen Requires a Text Entry Obj
 	private TextEntry textEntry;
-	private boolean visTextEntry = false;
+	//private boolean visTextEntry = false;
 	
-	private Key key;
+	//private Key key;
 	
 	private int playerScore;
-	
-	
 	
 	private static final long serialVersionUID = 0;
 	
@@ -31,12 +28,11 @@ public class GameScreen extends Screen{
 		super(game);
 		setBackground(Color.GREEN.darker());
 		
-		//SetFocusable
 		setFocusable(true);
 		
 		//Key Listeners
-		key = new Key();
-		addKeyListener(key);
+		//key = new Key();
+		//addKeyListener(key);
 		
 		road = new Road(this);
 		playerCar = new PlayerCar(this);
@@ -46,8 +42,7 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(this, 280, -200));
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
-		//Create TextEntry Obj
-				textEntry = new TextEntry(this);
+		textEntry = new TextEntry(this);
 		
 		initiateListeners();
 	}
@@ -56,6 +51,8 @@ public class GameScreen extends Screen{
 		KeyListener listener = new KeyListener(){
 			@Override
 			public void keyTyped(KeyEvent event){
+				if(event.getKeyCode() != KeyEvent.VK_BACK_SPACE)
+					textEntry.keyTyped(event);
 			}
 			
 			@Override
@@ -64,7 +61,14 @@ public class GameScreen extends Screen{
 			
 			@Override
 			public void keyPressed(KeyEvent event){
-				playerCar.keyPressed(event);
+				if(event.getKeyCode() == KeyEvent.VK_LEFT)
+					playerCar.keyPressed(event);
+				else if(event.getKeyCode() == KeyEvent.VK_RIGHT)
+					playerCar.keyPressed(event);
+				else if(event.getKeyCode() == KeyEvent.VK_DOWN)
+					textEntry.keyPressed(event);
+				else if(event.getKeyCode() == KeyEvent.VK_BACK_SPACE)
+					textEntry.keyPressed(event);
 			}
 		};
 		addKeyListener(listener);
@@ -92,7 +96,7 @@ public class GameScreen extends Screen{
 			eachObstacleCar.paint(graphic2D);
 		
 			//If the user has pressed the Show TV
-		if(visTextEntry)
+		if(textEntry.isVisible())
 			textEntry.paint(graphic2D);
 	}
 	
@@ -116,7 +120,7 @@ public class GameScreen extends Screen{
 		}
 	}
 	
-	private class Key implements KeyListener{
+	/*private class Key implements KeyListener{
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
@@ -254,8 +258,6 @@ public class GameScreen extends Screen{
 			{
 				textEntry.userMessage = textEntry.userMessage + " ";
 			}
-			// TODO Auto-generated method stub
-			
 		}
 
 		@Override
@@ -264,6 +266,6 @@ public class GameScreen extends Screen{
 			
 		}
 		
-	}
+	}*/
 
 }
