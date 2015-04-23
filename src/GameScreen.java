@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class GameScreen extends Screen{
 
@@ -18,6 +20,27 @@ public class GameScreen extends Screen{
 		
 		road = new Road(this);
 		playerCar = new PlayerCar(this);
+		
+		initiateListeners();
+	}
+	
+	public void initiateListeners(){
+		KeyListener listener = new KeyListener(){
+			@Override
+			public void keyTyped(KeyEvent event){
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent event){
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent event){
+				playerCar.keyPressed(event);
+			}
+		};
+		addKeyListener(listener);
+		setFocusable(true);
 	}
 	
 	@Override
@@ -33,6 +56,8 @@ public class GameScreen extends Screen{
 	@Override
 	public void run(){
 		while(true){
+			playerCar.move();
+			
 			repaint();
 			
 			try{
