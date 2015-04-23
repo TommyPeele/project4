@@ -26,11 +26,11 @@ public class GameOverScreen extends Screen
 
 	public void setBounds()
 	{
-        	endMessage.setBounds(40, 20, 520, 80);
-		scoreBar.setBounds(40, 120, 520, 20);
-        	learnButton.setBounds(40, 150, 520, 50);
-        	playAgain.setBounds(40, 220, 520, 50);
-        	exitButton.setBounds(40, 290, 520, 50);
+        	endMessage.setBounds(200, 20, 200, 80);
+		scoreBar.setBounds(200, 120, 200, 20);
+        	learnButton.setBounds(200, 150, 200, 50);
+        	playAgain.setBounds(200, 220, 200, 50);
+        	exitButton.setBounds(200, 290, 200, 50);
 	}
     
     	public void setLabels()
