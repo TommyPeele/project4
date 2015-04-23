@@ -28,7 +28,7 @@ public class Game extends JFrame implements Runnable{
 	public Game(){
 		currentScreen = new GameScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
 		
-		add(currentScreen);
+		getContentPane().add(currentScreen);
 		pack();
 	}
 	
