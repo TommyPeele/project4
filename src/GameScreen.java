@@ -18,6 +18,7 @@ public class GameScreen extends Screen{
 	
 	private Key key;
 	
+	private int playerScore;
 	
 	
 	
@@ -39,6 +40,10 @@ public class GameScreen extends Screen{
 		
 			//Create TextEntry Obj
 		textEntry = new TextEntry(this);
+	}
+	
+	public int getScore(){
+		return playerScore;
 	}
 	
 	@Override
