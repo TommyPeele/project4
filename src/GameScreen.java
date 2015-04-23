@@ -46,6 +46,9 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(this, 280, -200));
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
+		//Create TextEntry Obj
+				textEntry = new TextEntry(this);
+		
 		initiateListeners();
 	}
 	
@@ -70,9 +73,6 @@ public class GameScreen extends Screen{
 	
 	public void gameOver(){
 		System.out.println("Game Over");
-		
-			//Create TextEntry Obj
-		textEntry = new TextEntry(this);
 	}
 	
 	public int getScore(){
