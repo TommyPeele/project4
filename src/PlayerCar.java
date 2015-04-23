@@ -54,6 +54,10 @@ public class PlayerCar extends Car{
 		}
 	}
 	
+	public boolean checkCollision(ObstacleCar obstacleCar){
+		return getBounds().intersects(obstacleCar.getBounds());
+	}
+	
 	public void paint(Graphics2D graphic2D){
 		graphic2D.setColor(Color.BLUE);
 		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);

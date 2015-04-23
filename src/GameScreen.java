@@ -4,11 +4,13 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class GameScreen extends Screen{
 
 	private Road road;
 	private PlayerCar playerCar;
+	ArrayList<ObstacleCar> obstacleCars;
 	
 	private static final int DELAY = 100;
 	
@@ -20,6 +22,11 @@ public class GameScreen extends Screen{
 		
 		road = new Road(this);
 		playerCar = new PlayerCar(this);
+		obstacleCars = new ArrayList<ObstacleCar>();
+		
+		obstacleCars.add(new ObstacleCar(this, 180, -100));
+		obstacleCars.add(new ObstacleCar(this, 280, -200));
+		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
 		initiateListeners();
 	}
@@ -43,6 +50,10 @@ public class GameScreen extends Screen{
 		setFocusable(true);
 	}
 	
+	public void gameOver(){
+		System.out.println("Game Over");
+	}
+	
 	@Override
 	public void paint(Graphics graphic){
 		super.paint(graphic);
@@ -51,12 +62,19 @@ public class GameScreen extends Screen{
 		
 		road.paint(graphic2D);
 		playerCar.paint(graphic2D);
+		for(ObstacleCar eachObstacleCar : obstacleCars)
+			eachObstacleCar.paint(graphic2D);
 	}
 	
 	@Override
 	public void run(){
 		while(true){
 			playerCar.move();
+			for(ObstacleCar eachObstacleCar : obstacleCars){
+				eachObstacleCar.move();
+				if(playerCar.checkCollision(eachObstacleCar))
+					gameOver();
+			}
 			
 			repaint();
 			

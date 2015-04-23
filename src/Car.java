@@ -1,4 +1,5 @@
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public abstract class Car{
 	
@@ -31,6 +32,10 @@ public abstract class Car{
 	
 	public void setY(int y){
 		this.y = y;
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 	
 	public abstract void paint(Graphics2D graphic2D);
