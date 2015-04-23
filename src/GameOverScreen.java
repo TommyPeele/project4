@@ -4,8 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-public class GameOverScreen extends Screen
-{
+public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 	private static JLabel scoreBar;
@@ -15,21 +14,19 @@ public class GameOverScreen extends Screen
     private static JButton exitButton;
 	private static String scoreInfo;
 	
-	public GameOverScreen(Game game)
-	{
+	public GameOverScreen(Game game){
 		super(game);
-        initGUI();
+		initGUI();
 	}
     
-	public initGUI()
-    	{
-			//getScore needs to be implemented
-		scoreInfo = "Final Score: " + String.valueOf(game.getScore());
+	public void initGUI(){
+		//getScore needs to be implemented
+		//scoreInfo = "Final Score: " + String.valueOf(game.getScore());
 		setBounds();
-        	setLabels();
-        	setListeners();
-        	setAdd();
-    	}
+		setLabels();
+		setListeners();
+		setAdd();
+	}
 
 	public void setBounds()
 	{
@@ -43,11 +40,11 @@ public class GameOverScreen extends Screen
     public void setLabels()
    	{
     		//SetLabels not working
-       	endMessage.setLabel("You Life Isn't A Game, Don't Text And Drive");
-       	scoreBar.setLabel(scoreInfo);
-       	learnButton.setLabel("Learn More");
-       	playAgain.setLabel("Play Again");
-       	exitButton.setLabel("Exit");
+       	//endMessage.setLabel("You Life Isn't A Game, Don't Text And Drive");
+       	//scoreBar.setLabel(scoreInfo);
+       	//learnButton.setLabel("Learn More");
+       	//playAgain.setLabel("Play Again");
+       	//exitButton.setLabel("Exit");
    	}
     
    	public void setListeners()

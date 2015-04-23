@@ -4,12 +4,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-<<<<<<< HEAD
+
 import java.util.ArrayList;
-=======
-
-
->>>>>>> e420c6af77bb0bc766c8a159e321ac8f692f9c97
 
 public class GameScreen extends Screen{
 
@@ -44,7 +40,6 @@ public class GameScreen extends Screen{
 		
 		road = new Road(this);
 		playerCar = new PlayerCar(this);
-<<<<<<< HEAD
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
 		obstacleCars.add(new ObstacleCar(this, 180, -100));
@@ -75,7 +70,6 @@ public class GameScreen extends Screen{
 	
 	public void gameOver(){
 		System.out.println("Game Over");
-=======
 		
 			//Create TextEntry Obj
 		textEntry = new TextEntry(this);
@@ -83,7 +77,6 @@ public class GameScreen extends Screen{
 	
 	public int getScore(){
 		return playerScore;
->>>>>>> e420c6af77bb0bc766c8a159e321ac8f692f9c97
 	}
 	
 	@Override
@@ -95,15 +88,12 @@ public class GameScreen extends Screen{
 		
 		road.paint(graphic2D);
 		playerCar.paint(graphic2D);
-<<<<<<< HEAD
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
-=======
 		
 			//If the user has pressed the Show TV
 		if(visTextEntry)
 			textEntry.paint(graphic2D);
->>>>>>> e420c6af77bb0bc766c8a159e321ac8f692f9c97
 	}
 	
 	@Override
