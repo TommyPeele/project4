@@ -15,7 +15,7 @@ public class TextEntry{
 	
 	private boolean visible = false;
 	private String messageToType = "Message To Type";
-	public String userMessage = "";
+	private String userMessage = "";
 	private GameScreen gameScreen;
 	
 	public TextEntry(GameScreen gameScreen){
@@ -33,11 +33,11 @@ public class TextEntry{
 		}
 		else{
 			switch(event.getKeyCode()){
-			case KeyEvent.VK_DOWN:
+			case KeyEvent.VK_UP:
 				visible = false;
 				break;
 			case KeyEvent.VK_BACK_SPACE:
-				if(userMessage.length() != 0)
+				if(userMessage.length() > 0)
 					userMessage = userMessage.substring(0, userMessage.length() - 1);
 				break;
 			default:
@@ -49,12 +49,12 @@ public class TextEntry{
 	public void keyTyped(KeyEvent event){
 		if(visible){
 			char newCharacter = event.getKeyChar();
-			userMessage = userMessage + newCharacter;
+			if(newCharacter != 8) //ASCII code for backspace - this prevents backspace from incrementing userMessage length
+				userMessage = userMessage + newCharacter;
 		}
 	}
 	
 	public void paint(Graphics2D graphics2D){
-		
 		//Experimenting with Labels, Ignore
 		
 		/*String title = "<html><body style='width: 200px; padding: 5px;'>"
@@ -124,6 +124,6 @@ public class TextEntry{
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 24));
 		graphics2D.drawString(messageToType, 140, 140);
 		graphics2D.drawString(userMessage, 30, 220);
-		
 	}
+
 }
