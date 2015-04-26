@@ -2,7 +2,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Color;
 
-public class Notification {
+public class Notification{
 	
 		private GameScreen gameScreen;
 		private boolean availableMessage;
@@ -14,7 +14,6 @@ public class Notification {
 		}
 		
 		public void paint(Graphics2D graphic2D){
-			
 			System.out.println(tick);
 			
 			if(tick < 10 && tick < 20)
@@ -34,4 +33,5 @@ public class Notification {
 		public void blink(){
 			
 		}
+		
 }
