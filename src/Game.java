@@ -15,9 +15,11 @@
 
 import java.awt.EventQueue;
 
+import javax.swing.JApplet;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-public class Game extends JFrame implements Runnable{
+public class Game extends JApplet implements Runnable{
 
 	Screen currentScreen;
 	
@@ -25,18 +27,22 @@ public class Game extends JFrame implements Runnable{
 	
 	private static final long serialVersionUID = 0;
 	
-	public Game(){
+	public void init(){
+		try {
+			SwingUtilities.invokeAndWait(new Runnable(){
+				public void run() {
+					createGUI();
+				}
+			});
+		} catch (Exception e){
+			System.err.println("createGUI didn't complete successfully");
+		}
+	}
+	
+	public void createGUI(){
 		currentScreen = new GameScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
 		
 		add(currentScreen);
-		pack();
-	}
-	
-	public void createWindow(){
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setTitle("Game");
-		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 	
 	public void start(){
@@ -49,15 +55,15 @@ public class Game extends JFrame implements Runnable{
 		currentScreen.run();
 	}
 	
-	public static void main(String[] args){
-		EventQueue.invokeLater(new Runnable(){
-			@Override
-			public void run(){
-				Game game = new Game();
-				game.createWindow();
-				game.start();
-			}
-		});
-	}
+//	public static void main(String[] args){
+//		EventQueue.invokeLater(new Runnable(){
+//			@Override
+//			public void run(){
+//				Game game = new Game();
+//				game.createWindow();
+//				game.start();
+//			}
+//		});
+//	}
 
 }

@@ -1,6 +1,4 @@
-/GameScreen$Key.class
-/PlayerCar$Key.class
-/GameOverScreen$learnButtonListener.class
-/GameOverScreen$playButtonListener.class
-/GameOverScreen$exitButtonListener.class
-/GameScreen$1.class
+/Game$1.class
+/StartScreen$ExitButtonListener.class
+/StartScreen$InfoButtonListener.class
+/StartScreen$StartButtonListener.class
