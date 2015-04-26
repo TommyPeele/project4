@@ -7,3 +7,9 @@
 /Notification.class
 /Foliage.class
 /Dirt.class
+/StartScreen$ExitButtonListener.class
+/StartScreen$InfoButtonListener.class
+/StartScreen$StartButtonListener.class
+/InfoScreen.class
+/InfoScreen$ExitButtonListener.class
+/InfoScreen$StartButtonListener.class

@@ -38,7 +38,6 @@ public class TextEntry{
 	public void chooseTextMessage(){
 		r = new Random();
 		int randomNumber = r.nextInt((noOfMessages - 0));
-		System.out.println(randomNumber);
 		
 		messageToType = messages.get(randomNumber);
 	}
@@ -56,16 +55,6 @@ public class TextEntry{
 		}
 		
 		numberOfErrors = numberOfErrors + (messageToType.length() - i);
-		/*for(int i = 0; i < messageToType.length(); i++)
-		{
-			if(i > messageToType.length() || i > userMessage.length())
-				break;
-			else if(messageToType.charAt(i) != userMessage.charAt(i))
-				numberOfErrors++;
-		}*/
-	
-		System.out.println(userMessage + ":");
-		System.out.println(messageToType + ":");
 		
 		if(numberOfErrors > 10)
 			return false;

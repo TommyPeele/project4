@@ -40,7 +40,7 @@ public class Game extends JApplet implements Runnable{
 	}
 	
 	public void createGUI(){
-		currentScreen = new GameScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
+		currentScreen = new StartScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
 		
 		getContentPane().add(currentScreen);
 	}
