@@ -15,6 +15,7 @@ public class GameScreen extends Screen{
 	private PlayerCar playerCar;
 	private ArrayList<ObstacleCar> obstacleCars;
 	private TextEntry textEntry;
+	private Notification notification;
 	
 	private static final int DELAY = 100;
 	
@@ -37,6 +38,9 @@ public class GameScreen extends Screen{
 		textEntry = new TextEntry(this);
 			//Choose the first message
 		textEntry.chooseTextMessage();
+		
+		notification = new Notification(this);
+		
 		initiateListeners();
 	}
 	
@@ -82,9 +86,13 @@ public class GameScreen extends Screen{
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
 		
+		notification.paint(graphic2D);
+		
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
 			textEntry.paint(graphic2D);
+		
+		
 	}
 	
 	@Override
