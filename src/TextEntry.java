@@ -18,7 +18,7 @@ import java.math.*;
 
 public class TextEntry{
 	
-	private List<String> messages = Arrays.asList("I will be right there", "Hold On, I am on my way",
+	private List<String> messages = Arrays.asList("I will be right there", "Hold on, I am on my way",
 			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
 			"Yeah, I already bought everything");
 	

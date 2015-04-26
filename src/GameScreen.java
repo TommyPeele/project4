@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import java.util.ArrayList;
 
 public class GameScreen extends Screen{
@@ -17,7 +16,7 @@ public class GameScreen extends Screen{
 	private TextEntry textEntry;
 	private Notification notification;
 	
-	//Foliage Detal
+	//Foliage detail
 	private ArrayList<Dirt> dirtBlocks;
 	
 	private static final int DELAY = 100;
