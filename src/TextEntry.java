@@ -4,14 +4,27 @@ import java.awt.Font;
 //import java.awt.GradientPaint;
 //import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.List;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 //import java.awt.image.BufferedImage;
+import java.util.Arrays;
+import java.util.Random;
+import java.math.*;
 
 //import javax.swing.ImageIcon;
 //import javax.swing.JFrame;
 //import javax.swing.JLabel;
 
 public class TextEntry{
+	
+	private List<String> messages = Arrays.asList("I will be right there", "Hold On, I am on my way",
+			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
+			"Yeah, I already bought everything");
+	
+	private int noOfMessages = messages.size();
+	
+	private Random r;
 	
 	private boolean visible = false;
 	private String messageToType = "Message To Type";
@@ -20,6 +33,52 @@ public class TextEntry{
 	
 	public TextEntry(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
+	}
+	
+	public void chooseTextMessage(){
+		r = new Random();
+		int randomNumber = r.nextInt((noOfMessages - 0));
+		System.out.println(randomNumber);
+		
+		messageToType = messages.get(randomNumber);
+	}
+	
+	public boolean compareUserMessage(){
+		int numberOfErrors = 0;
+		int i = 0;
+		
+		while(i < messageToType.length() && i < userMessage.length())
+		{
+			if(messageToType.charAt(i) != userMessage.charAt(i))
+				numberOfErrors++;
+			
+			i++;
+		}
+		
+		numberOfErrors = numberOfErrors + (messageToType.length() - i);
+		/*for(int i = 0; i < messageToType.length(); i++)
+		{
+			if(i > messageToType.length() || i > userMessage.length())
+				break;
+			else if(messageToType.charAt(i) != userMessage.charAt(i))
+				numberOfErrors++;
+		}*/
+	
+		System.out.println(userMessage + ":");
+		System.out.println(messageToType + ":");
+		
+		if(numberOfErrors > 10)
+			return false;
+		else
+			return true;
+	}
+	
+	public void resetUserMessage(){
+		userMessage = "";
+	}
+	
+	public void resetMessageToType(){
+		chooseTextMessage();
 	}
 	
 	public boolean isVisible(){
@@ -40,6 +99,18 @@ public class TextEntry{
 				if(userMessage.length() > 0)
 					userMessage = userMessage.substring(0, userMessage.length() - 1);
 				break;
+			case KeyEvent.VK_ENTER:
+				if(userMessage.length() > 0){
+					if(compareUserMessage())
+					{
+						System.out.println("Good!");
+						resetUserMessage();
+						resetMessageToType();
+						//update Score here
+					}
+					else
+						System.out.println("Bad!");
+				}
 			default:
 				break;
 			}
@@ -49,7 +120,7 @@ public class TextEntry{
 	public void keyTyped(KeyEvent event){
 		if(visible){
 			char newCharacter = event.getKeyChar();
-			if(newCharacter != 8) //ASCII code for backspace - this prevents backspace from incrementing userMessage length
+			if(newCharacter != 8 && newCharacter != 10 && newCharacter != 14) //ASCII code for backspace/*Enter*/Shift - this prevents backspace from incrementing userMessage length
 				userMessage = userMessage + newCharacter;
 		}
 	}

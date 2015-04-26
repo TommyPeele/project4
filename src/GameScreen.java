@@ -35,7 +35,8 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
 		textEntry = new TextEntry(this);
-		
+			//Choose the first message
+		textEntry.chooseTextMessage();
 		initiateListeners();
 	}
 	
