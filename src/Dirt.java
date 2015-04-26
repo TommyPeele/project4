@@ -16,7 +16,7 @@ public class Dirt {
 	
 	public void paint(Graphics2D graphic2D){
 		graphic2D.setColor(new Color(156, 93, 82));
-		graphic2D.fillRect(x, y, 10, 20);
+		graphic2D.fillRect(x, y, 5, 40);
 	}
 	
 	public void move()

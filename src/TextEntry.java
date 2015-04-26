@@ -193,7 +193,7 @@ public class TextEntry{
 		
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 24));
-		graphics2D.drawString(messageToType, 140, 140);
+		graphics2D.drawString(messageToType, 30, 140);
 		graphics2D.drawString(userMessage, 30, 220);
 	}
 
