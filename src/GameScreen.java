@@ -17,6 +17,9 @@ public class GameScreen extends Screen{
 	private TextEntry textEntry;
 	private Notification notification;
 	
+	//Foliage Detal
+	private ArrayList<Dirt> dirtBlocks;
+	
 	private static final int DELAY = 100;
 	
 	private static final long serialVersionUID = 0;
@@ -28,6 +31,21 @@ public class GameScreen extends Screen{
 		setFocusable(true);
 		
 		road = new Road(this);
+		
+		dirtBlocks = new ArrayList<Dirt>();
+		dirtBlocks.add(new Dirt(this, 50, 300));
+		dirtBlocks.add(new Dirt(this, 20, 240));
+		dirtBlocks.add(new Dirt(this, 35, 110));
+		dirtBlocks.add(new Dirt(this, 90, 50));
+		dirtBlocks.add(new Dirt(this, 75, 0));
+		
+		dirtBlocks.add(new Dirt(this, 500, 380));
+		dirtBlocks.add(new Dirt(this, 530, 240));
+		dirtBlocks.add(new Dirt(this, 480, 110));
+		dirtBlocks.add(new Dirt(this, 570, 10));
+		
+		
+		
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
@@ -82,6 +100,10 @@ public class GameScreen extends Screen{
 		
 		
 		road.paint(graphic2D);
+		
+		for(Dirt eachDirtBlock : dirtBlocks)
+			eachDirtBlock.paint(graphic2D);
+		
 		playerCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
@@ -99,6 +121,9 @@ public class GameScreen extends Screen{
 	public void run(){
 		while(true){
 			playerCar.move();
+			for(Dirt eachDirtBlock : dirtBlocks)
+				eachDirtBlock.move();
+			
 			for(ObstacleCar eachObstacleCar : obstacleCars){
 				eachObstacleCar.move();
 				if(playerCar.checkCollision(eachObstacleCar))
