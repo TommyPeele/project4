@@ -40,6 +40,7 @@ public class GameOverScreen extends Screen{
         	game.currentScreen = new GameScreen(game);
         	game.getContentPane().add(game.currentScreen);
         	game.getContentPane().revalidate();
+        	game.start();
         }
     }
 	
