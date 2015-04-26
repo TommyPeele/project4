@@ -14,36 +14,50 @@ public class InfoScreen extends Screen{
 	}
 	
 	public void initGUI(){
-		JButton startButton = new JButton("Start Game");
-		JButton exitButton = new JButton("Exit");
+		JButton webButton = new JButton("Learn More Statistics Here");
+		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
+		
+		JLabel webQuote = new JLabel("13% of Drivers aged 18-20 involved in car wrecks admitted to talking or texting on the time of their crash.");
+		JLabel multiQuote = new JLabel("Multitasking doesn’t just slow you down and increase the number of mistakes you make; it temporarily changes the way your brain works.");
 		
 		setLayout(null);
 		
-		startButton.setBounds(200,270,200,50);
-		exitButton.setBounds(200,340,200,50);
+		webQuote.setBounds(200,100,200,50);
+		webButton.setBounds(200,160,200,30);
+		multiQuote.setBounds(200,200,200,50);
+		multiButton.setBounds(200,260,200,30);
 		
-		startButton.addActionListener(new StartButtonListener());
-		exitButton.addActionListener(new ExitButtonListener());
+		webButton.addActionListener(new WebButtonListener());
+		multiButton.addActionListener(new MultiButtonListener());
 		
-		add(startButton);
-		add(exitButton);
+		add(webQuote);
+		add(webButton);
+		add(multiQuote);
+		add(multiButton);
 	}
 	
-	class StartButtonListener implements ActionListener {
+	class WebButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new GameScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	open("http://www.textinganddrivingsafety.com/texting-and-driving-stats/");
         }
     }
 	
-	class ExitButtonListener implements ActionListener {
+	
+	class MultiButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	System.exit(ABORT);
+        	open("http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/");
         }
+     
     }
 
+    private static void open(URI uri) {
+    	if (Desktop.isDesktopSupported()) {
+      		try {
+        		Desktop.getDesktop().browse(uri);
+      		    } catch (IOException e) { System.out.println("Link Not Found");}
+    	} else { System.out.println("Not Supported Desktop"); }
+    }
+    
 }
