@@ -47,10 +47,10 @@ public class StartScreen extends Screen{
 		background.setOpaque(false);
 		
 		add(background);
-		background.add(instruction);
-		background.add(startButton);
-		background.add(infoButton);
-		background.add(exitButton);
+		add(instruction);
+		add(startButton);
+		add(infoButton);
+		add(exitButton);
 	}
 	
 	class StartButtonListener implements ActionListener {
