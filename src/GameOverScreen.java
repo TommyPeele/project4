@@ -36,7 +36,11 @@ public class GameOverScreen extends Screen{
 					+ "You would be fined $100 in DC";
 		}
 		else {
+<<<<<<< HEAD
 			warning = "Congratulations, you ignored your text messages. You win! ";
+=======
+			warning = "Congratulations, you ignored your text messages. You win! "
+>>>>>>> origin/master
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
