@@ -57,6 +57,7 @@ public class GameScreen extends Screen{
 		
 		
 		add(score);
+		
 		textEntry = new TextEntry(this);
 			//Choose the first message
 		textEntry.chooseTextMessage();
@@ -104,7 +105,8 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void paint(Graphics graphic){
-		score.setText("Score: " + String.valueOf(score));
+		
+		//score.setText("Score: " + String.valueOf(getScore()));
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

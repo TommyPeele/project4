@@ -7,6 +7,7 @@ import java.net.URI;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 public class InstructionScreen extends Screen{
@@ -30,7 +31,7 @@ public class InstructionScreen extends Screen{
 		+ "Avoid texting with a police car on the road<br>"
 		+ "Avoid accidents with other cars</html>");
 		
-	//	instruction.setHorizontalAlignment(SwingConstants.CENTER);
+		instruction.setHorizontalAlignment(SwingConstants.CENTER);
 		setLayout(null);
 		
 		instruction.setBounds(50,150,500,150);
