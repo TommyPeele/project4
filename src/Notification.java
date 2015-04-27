@@ -18,8 +18,10 @@ public class Notification{
 			
 			if(tick < 10 && tick < 20)
 			{
-				graphic2D.setColor(Color.RED);
+				graphic2D.setColor(Color.WHITE);
 				graphic2D.fillOval(12, 4, 50, 50);
+				graphic2D.setColor(Color.RED);
+				graphic2D.fillOval(17, 9, 40, 40);
 				tick++;
 			}
 			else if(tick >= 10 && tick < 20)

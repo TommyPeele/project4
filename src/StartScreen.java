@@ -2,6 +2,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 public class StartScreen extends Screen{
@@ -21,17 +23,20 @@ public class StartScreen extends Screen{
 		
 		setLayout(null);
 		
-		instruction.setBounds(100,150,300,50);
+		instruction.setBounds(50,50,500,150);
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
 		
-		instruction.setText("Use the left and right arrows to move the car between lanes.\n"
-		+ "Use the down arrow to pull down the text screen\n" 
-		+ "Use the up arrow to pull up the text screen\n"
-		+ "Type the text and press Enter to send the text\n"
-		+ "Avoid texting with a police car on the road\n"
-		+ "Avoid accidents with other cars")
+		instruction.setText("<html>Use the left and right arrows to move the car between lanes.<br>"
+		+ "A red circle in the upper left corner will flash when you have a new text message!<br>"
+		+ "Use the down arrow to pull down the text screen<br>" 
+		+ "Use the up arrow to pull up the text screen<br>"
+		+ "Type the text and press Enter to send the text<br>"
+		+ "Avoid texting with a police car on the road<br>"
+		+ "Avoid accidents with other cars</html>");
+		
+		instruction.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());

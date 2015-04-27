@@ -39,8 +39,8 @@ public class PlayerCar extends Car{
 	public void move(){
 		switch(velocity){
 		case -1:
-			System.out.println("Going Left");
-			System.out.println(velocity);
+			//System.out.println("Going Left");
+			//System.out.println(velocity);
 			x = x - 10;
 			moveCount++;
 			if(moveCount == 10){
@@ -50,8 +50,8 @@ public class PlayerCar extends Car{
 			}
 			break;
 		case 1:
-			System.out.println("Going Right");
-			System.out.println(velocity);
+			//System.out.println("Going Right");
+			//System.out.println(velocity);
 			x = x + 10;
 			moveCount++;
 			if(moveCount == 10){

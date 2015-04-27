@@ -34,7 +34,7 @@ public class TextEntry{
 	private static final String inst = "Please Type The Following Message Exactly:";
 	
 	private int referenceX;
-	private int referenceY;
+	private int referenceY = -600;
 	
 	public TextEntry(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
@@ -79,10 +79,21 @@ public class TextEntry{
 		return visible;
 	}
 	
+	public void animateWindow()
+	{
+		for(int i = 0; i < 300; i ++)
+		{
+			referenceY++;
+		}
+	}
+	
 	public void keyPressed(KeyEvent event){
 		if(!visible){
 			if(event.getKeyCode() == KeyEvent.VK_DOWN)
+			{
 				visible = true;
+				animateWindow();
+			}
 		}
 		else{
 			switch(event.getKeyCode()){
@@ -100,6 +111,7 @@ public class TextEntry{
 						System.out.println("Good!");
 						resetUserMessage();
 						resetMessageToType();
+						visible = false;
 						//update Score here
 					}
 					else
@@ -121,19 +133,19 @@ public class TextEntry{
 	
 	public void paint(Graphics2D graphics2D){
 		graphics2D.setColor(Color.GRAY);
-		graphics2D.fillRect(10, 0, 500, 250);
+		graphics2D.fillRect(10, 0 + referenceY, 500, 250);
 		
 		graphics2D.setColor(Color.BLACK);
-		graphics2D.drawLine(10, 170, 510, 170);
+		graphics2D.drawLine(10, 170 + referenceY, 510, 170);
 		
 		graphics2D.setColor(Color.WHITE);
-		graphics2D.fillRect(25, 175, 470, 50);
+		graphics2D.fillRect(25, 175 + referenceY, 470, 50);
 		
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		graphics2D.drawString(inst, 30, 100);
-		graphics2D.drawString(messageToType, 30, 140);
-		graphics2D.drawString(userMessage, 30, 220);
+		graphics2D.drawString(inst, 30, 100 + referenceY);
+		graphics2D.drawString(messageToType, 30, 140 + referenceY);
+		graphics2D.drawString(userMessage, 30, 220 + referenceY);
 	}
 
 }
