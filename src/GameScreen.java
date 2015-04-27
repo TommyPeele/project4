@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+
 public class GameScreen extends Screen{
 
 	private int playerScore;
@@ -16,18 +18,23 @@ public class GameScreen extends Screen{
 	private TextEntry textEntry;
 	private Notification notification;
 	private JLabel score;
-	//Foliage detail
+	private PoliceCar policeCar;
 	private ArrayList<Dirt> dirtBlocks;
 	
 	private static final int DELAY = 100;
 	
 	private static final long serialVersionUID = 0;
 	
+	private boolean running = true;
+	
+	private boolean firstRend = false;
+	
 	public GameScreen(Game game){
 		super(game);
 		setBackground(Color.GREEN.darker());
 		
 		setFocusable(true);
+		
 		
 		road = new Road(this);
 		
@@ -52,13 +59,19 @@ public class GameScreen extends Screen{
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
-		obstacleCars.add(new ObstacleCar(this, 180, -100));
-		obstacleCars.add(new ObstacleCar(this, 280, -200));
-		obstacleCars.add(new ObstacleCar(this, 380, -300));
+		obstacleCars.add(new ObstacleCar(this, 185, -100));
+		obstacleCars.add(new ObstacleCar(this, 285, -400));
+		obstacleCars.add(new ObstacleCar(this, 385, -700));
+		obstacleCars.add(new ObstacleCar(this, 185, -600));
+		obstacleCars.add(new ObstacleCar(this, 285, -200));
+		
+		policeCar = new PoliceCar(this, 180, -500);
 		
 		textEntry = new TextEntry(this);
 			//Choose the first message
 		textEntry.chooseTextMessage();
+		//paintInitialTextEntry(Graphic );
+		
 		
 		notification = new Notification(this);
 		
@@ -94,11 +107,29 @@ public class GameScreen extends Screen{
 	}
 	
 	public void gameOver(){
+		
+		running = false;
+		
+		game.getContentPane().removeAll();
+    	game.currentScreen = new GameOverScreen(game);
+    	game.getContentPane().add(game.currentScreen);
+    	game.getContentPane().validate();
+		
 		System.out.println("Game Over");
 	}
 	
 	public int getScore(){
 		return playerScore;
+	}
+	
+	public void paintInitialTextEntry(Graphics graphic)
+	{
+		super.paint(graphic);
+		Graphics2D graphic2D = (Graphics2D) graphic;
+		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		
+		textEntry.paint(graphic2D);
+		textEntry.setVisFalse();
 	}
 	
 	@Override
@@ -109,12 +140,19 @@ public class GameScreen extends Screen{
 		
 		score.setText("Score: " + String.valueOf(playerScore));
 		
+		if(!textEntry.isVisible() && !firstRend)
+		{
+			textEntry.paint(graphic2D);
+			firstRend = true;
+		}
+		
 		road.paint(graphic2D);
 		
 		for(Dirt eachDirtBlock : dirtBlocks)
 			eachDirtBlock.paint(graphic2D);
 		
 		playerCar.paint(graphic2D);
+		policeCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
 		
@@ -129,11 +167,18 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void run(){
-		while(true){
+		while(running){
 			playerScore++;
 			playerCar.move();
+			policeCar.move();
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
+			
+			if(playerCar.checkPoliceCollision(policeCar))
+				gameOver();
+			
+			if(playerCar.checkPoliceDetection(policeCar, textEntry))
+				gameOver();
 			
 			for(ObstacleCar eachObstacleCar : obstacleCars){
 				eachObstacleCar.move();
