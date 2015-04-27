@@ -56,6 +56,8 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(this, 280, -200));
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
+		
+		add(score);
 		textEntry = new TextEntry(this);
 			//Choose the first message
 		textEntry.chooseTextMessage();
