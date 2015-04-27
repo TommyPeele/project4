@@ -12,6 +12,7 @@ public class GameOverScreen extends Screen{
 
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
+	private static final int gameOverTimer = 2;
 	private String warning;
 	
 	public GameOverScreen(Game game, int state, int playerScore){
@@ -27,9 +28,12 @@ public class GameOverScreen extends Screen{
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
 		}
-		else {
+		else if (state == gameOverDetection){
 			warning = "You were just caught texting while driving! <br>"
 					+ "You would be fined $100 in DC";
+		}
+		else {
+			warning = "Congratulations, you ignored your text messages. You win! "
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
