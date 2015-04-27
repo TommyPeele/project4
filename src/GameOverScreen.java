@@ -1,16 +1,15 @@
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
-<<<<<<< HEAD
-	
-=======
->>>>>>> e0a9e1841bbacfd7f0c9a96c84e3368a7f839f1a
+
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
 	private String warning;
@@ -22,22 +21,20 @@ public class GameOverScreen extends Screen{
 	}
 	
 	public void initGUI(int state, int playerScore){
-<<<<<<< HEAD
-		if(state == gameOverCollision)
-			warning = "You just had an accident";
-		else
-			warning = "You were caught texting by the POPO";
-		
-=======
+
+	
 		if (state == gameOverCollision) {
-			warning = "You are caught texting by the police!";
+			warning = "You just collided with another vehicle! Texting while driving"
+					+ " makes you 23x more likely to crash";
 		}
 		else {
-			warning = "You just had an accident";
+			warning = "You were just caught texting while driving!";
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
->>>>>>> e0a9e1841bbacfd7f0c9a96c84e3368a7f839f1a
+		message.setHorizontalAlignment(SwingConstants.CENTER);
+		message.setFont(new Font("Serif", Font.BOLD, 20));
+
 		
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");

@@ -18,12 +18,10 @@ public class GameScreen extends Screen{
 	private ArrayList<ObstacleCar> obstacleCars;
 	private TextEntry textEntry;
 	private Notification notification;
-<<<<<<< HEAD
-	//Foliage detail
-=======
+
 	private JLabel score;
 	private PoliceCar policeCar;
->>>>>>> origin/master
+
 	private ArrayList<Dirt> dirtBlocks;
 	
 	private static final int DELAY = 100;
