@@ -48,8 +48,10 @@ public class InfoScreen extends Screen{
 	class WebButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	//URI myUri = URI("http://www.textinganddrivingsafety.com/texting-and-driving-stats/");
-        	//open(myUri);
+        	link = "http://www.textinganddrivingsafety.com/texting-and-driving-stats/";
+        	AppletContext a = game.getAppletContext();
+	        URL u = new URL(link);
+	        a.showDocument(u,"_self");
         }
     }
 	
@@ -57,7 +59,10 @@ public class InfoScreen extends Screen{
 	class MultiButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	//open("http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/");
+        	link = "http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/";
+        	AppletContext a = game.getAppletContext();
+	        URL u = new URL(link);
+	        a.showDocument(u,"_self");
         }
      
     }

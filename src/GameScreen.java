@@ -11,8 +11,8 @@ import javax.swing.JLabel;
 
 public class GameScreen extends Screen{
 
-	private int playerScore;
-	
+	private int playerScore = 0;
+	private int timerValue = 1500;
 	private Road road;
 	private PlayerCar playerCar;
 	private ArrayList<ObstacleCar> obstacleCars;
@@ -30,7 +30,7 @@ public class GameScreen extends Screen{
 	
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
-	
+	private static final int gameOverTimer = 2;
 	private boolean running = true;
 	
 	private boolean firstRend = false;
@@ -146,6 +146,7 @@ public class GameScreen extends Screen{
 			firstRend = true;
 		}
 		
+		
 		road.paint(graphic2D);
 		
 		for(Dirt eachDirtBlock : dirtBlocks)
@@ -167,10 +168,16 @@ public class GameScreen extends Screen{
 		
 	}
 	
+	public void timerIncrease()
+	{
+		timerValue += 100;
+	}
+	
 	@Override
 	public void run(){
 		while(running){
 			playerScore++;
+			timerValue--;
 			playerCar.move();
 			policeCar.move();
 
@@ -182,6 +189,9 @@ public class GameScreen extends Screen{
 			
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
 				gameOver(gameOverDetection);
+				
+			if(timerValue == 0)
+				gameOver(gameOverTimer);
 			
 			for(ObstacleCar eachObstacleCar : obstacleCars){
 				eachObstacleCar.move();
