@@ -15,7 +15,7 @@ public class StartScreen extends Screen{
 	}
 	
 	public void initGUI(){
-		JLabel background = new JLabel(new ImageIcon("/res/car-accident.jpg"));
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JLabel instruction = new JLabel();
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
