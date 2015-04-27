@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -17,7 +18,6 @@ public class GameScreen extends Screen{
 	private ArrayList<ObstacleCar> obstacleCars;
 	private TextEntry textEntry;
 	private Notification notification;
-	private JLabel score;
 	//Foliage detail
 	private ArrayList<Dirt> dirtBlocks;
 	
@@ -45,18 +45,12 @@ public class GameScreen extends Screen{
 		dirtBlocks.add(new Dirt(this, 480, 110));
 		dirtBlocks.add(new Dirt(this, 570, 10));
 		
-		score = new JLabel("Score: 0");
-		score.setBounds(550, 10, 40, 20);
-		
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
 		obstacleCars.add(new ObstacleCar(this, 180, -100));
 		obstacleCars.add(new ObstacleCar(this, 280, -200));
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
-		
-		
-		add(score);
 		
 		textEntry = new TextEntry(this);
 			//Choose the first message
@@ -106,7 +100,6 @@ public class GameScreen extends Screen{
 	@Override
 	public void paint(Graphics graphic){
 		
-		//score.setText("Score: " + String.valueOf(getScore()));
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -122,6 +115,8 @@ public class GameScreen extends Screen{
 			eachObstacleCar.paint(graphic2D);
 		
 		notification.paint(graphic2D);
+		
+		graphic.drawString("Score: "+ String.valueOf(getScore()), 500, 40); 
 		
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
