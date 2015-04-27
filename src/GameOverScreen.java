@@ -8,7 +8,7 @@ public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 	
-	public StartScreen(Game game){
+	public GameOverScreen(Game game){
 		super(game);
 		initGUI();
 	}
@@ -41,6 +41,7 @@ public class GameOverScreen extends Screen{
         	game.getContentPane().add(game.currentScreen);
         	game.getContentPane().revalidate();
         	game.start();
+        	game.currentScreen.requestFocusInWindow();
         }
     }
 	

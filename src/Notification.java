@@ -14,7 +14,7 @@ public class Notification{
 		}
 		
 		public void paint(Graphics2D graphic2D){
-			System.out.println(tick);
+			//System.out.println(tick);
 			
 			if(tick < 10 && tick < 20)
 			{

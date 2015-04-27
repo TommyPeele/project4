@@ -58,11 +58,14 @@ public class GameScreen extends Screen{
 		
 		notification = new Notification(this);
 		
+		System.out.println("Before Init");
+		
 		initiateListeners();
 	}
 	
 	public void initiateListeners(){
 		KeyListener listener = new KeyListener(){
+			
 			@Override
 			public void keyTyped(KeyEvent event){
 				textEntry.keyTyped(event);
@@ -79,7 +82,10 @@ public class GameScreen extends Screen{
 					textEntry.keyPressed(event);
 			}
 		};
+		
+		System.out.println("Before add");
 		addKeyListener(listener);
+		requestFocusInWindow();
 		setFocusable(true);
 	}
 	

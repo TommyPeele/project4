@@ -36,12 +36,14 @@ public class StartScreen extends Screen{
 	class StartButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
+        	System.out.println("Start");
         	game.getContentPane().removeAll();
         	game.currentScreen = new GameScreen(game);
         	game.getContentPane().add(game.currentScreen);
         	game.getContentPane().revalidate();
+        	//requestFocusInWindow();
         	game.start();
-        
+        	game.currentScreen.requestFocusInWindow();
         }
     }
 	
