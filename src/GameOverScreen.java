@@ -7,14 +7,23 @@ public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 	
+	private static final int gameOverCollision = 0;
+	private static final int gameOverDetection = 1;
+	private String warning;
 	
 	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
-		if (state == )
-		initGUI();
+		
+		initGUI(state, playerScore);
 	}
 	
-	public void initGUI(){
+	public void initGUI(int state, int playerScore){
+		if(state == gameOverCollision)
+			warning = "You just had an accident";
+		else
+			warning = "You were caught texting by the POPO";
+		
+		
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");

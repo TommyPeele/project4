@@ -171,10 +171,6 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void run(){
-<<<<<<< HEAD
-
-=======
->>>>>>> 350c6d2eea698782bf524ef9789446b7471c0155
 		while(running){
 			playerScore++;
 			playerCar.move();
