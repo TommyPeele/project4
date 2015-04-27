@@ -38,7 +38,7 @@ public class GameOverScreen extends Screen{
 		else {
 			warning = "Congratulations, you ignored your text messages. You win! ";
 		}
-		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
+		String msg = "<html>" + warning + "<br>Your 'score' is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
