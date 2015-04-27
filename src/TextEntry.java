@@ -107,7 +107,7 @@ public class TextEntry{
 						resetUserMessage();
 						resetMessageToType();
 						visible = false;
-						gameScreen.increaseTimer();
+						gameScreen.timerIncrease();
 						//update Score here
 					}
 					else

@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +17,10 @@ public class StartScreen extends Screen{
 	}
 	
 	public void initGUI(){
+		setBackground(Color.CYAN);
+		
+		
+		
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JButton startButton = new JButton("Start Game");
 		JButton instructionButton = new JButton("Instructions to the Game");

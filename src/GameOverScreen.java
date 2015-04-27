@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,8 @@ public class GameOverScreen extends Screen{
 	}
 	
 	public void initGUI(int state, int playerScore){
+		
+		setBackground(Color.CYAN);
 
 	
 		if (state == gameOverCollision) {
@@ -33,11 +36,7 @@ public class GameOverScreen extends Screen{
 					+ "You would be fined $100 in DC";
 		}
 		else {
-<<<<<<< HEAD
-			warning = "You were just caught texting while driving! In DC, you would have been fined 100 USD!";
-=======
-			warning = "Congratulations, you ignored your text messages. You win! "
->>>>>>> origin/master
+			warning = "Congratulations, you ignored your text messages. You win! ";
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);

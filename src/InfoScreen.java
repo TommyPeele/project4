@@ -1,11 +1,18 @@
+import java.applet.AppletContext;
+import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 public class InfoScreen extends Screen{
@@ -18,20 +25,29 @@ public class InfoScreen extends Screen{
 	}
 	
 	public void initGUI(){
+		
+		setBackground(Color.CYAN);
+		
+		
+		
+		
+		
+		
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
 		
-		JLabel webQuote = new JLabel("13% of Drivers aged 18-20 involved in car wrecks admitted to talking or texting on the time of their crash.");
-		JLabel multiQuote = new JLabel("Multitasking doesn’t just slow you down and increase the number of mistakes you make; it temporarily changes the way your brain works.");
-		
+		JLabel webQuote = new JLabel("<html>13% of Drivers aged 18-20 involved in car wrecks admitted to talking or texting on the time of their crash.</html>");
+		webQuote.setFont(new Font("Serif", Font.BOLD, 16));
+		JLabel multiQuote = new JLabel("<html>Multitasking doesn't just slow you down and increase the number of mistakes you make; it temporarily changes the way your brain works.<html>");
+		multiQuote.setFont(new Font("Serif", Font.BOLD, 16));
 		JButton startButton = new JButton("Return to Main Screen");
 		
 		setLayout(null);
 		
-		webQuote.setBounds(200,100,200,50);
-		webButton.setBounds(200,160,200,30);
-		multiQuote.setBounds(200,200,200,50);
-		multiButton.setBounds(200,260,200,30);
+		webQuote.setBounds(100,10, 400,100);
+		webButton.setBounds(200,120, 200,30);
+		multiQuote.setBounds(100,160, 400,100);
+		multiButton.setBounds(200,270,200,30);
 		startButton.setBounds(200,320,200,50);
 		
 		webButton.addActionListener(new WebButtonListener());
@@ -48,10 +64,19 @@ public class InfoScreen extends Screen{
 	class WebButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	link = "http://www.textinganddrivingsafety.com/texting-and-driving-stats/";
-        	AppletContext a = game.getAppletContext();
-	        URL u = new URL(link);
-	        a.showDocument(u,"_self");
+        	String link = "http://www.textinganddrivingsafety.com/texting-and-driving-stats/";
+        	try {
+				URI myUri = new URI(link);
+				try {
+					java.awt.Desktop.getDesktop().browse(myUri);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         }
     }
 	
@@ -59,10 +84,20 @@ public class InfoScreen extends Screen{
 	class MultiButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	link = "http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/";
-        	AppletContext a = game.getAppletContext();
-	        URL u = new URL(link);
-	        a.showDocument(u,"_self");
+        	String link = "http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/";
+        	try {
+				URI myUri = new URI(link);
+				try {
+					java.awt.Desktop.getDesktop().browse(myUri);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	      
         }
      
     }

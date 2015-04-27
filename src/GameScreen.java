@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 public class GameScreen extends Screen{
 
 	private int playerScore = 0;
-	private int timerValue = 1500;
+	private int timerValue = 500;
 	private Road road;
 	private PlayerCar playerCar;
 	private ArrayList<ObstacleCar> obstacleCars;
@@ -59,13 +59,13 @@ public class GameScreen extends Screen{
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
-		obstacleCars.add(new ObstacleCar(this, 185, -100));
-		obstacleCars.add(new ObstacleCar(this, 285, -400));
-		obstacleCars.add(new ObstacleCar(this, 385, -700));
-		obstacleCars.add(new ObstacleCar(this, 185, -600));
-		obstacleCars.add(new ObstacleCar(this, 285, -200));
+		obstacleCars.add(new ObstacleCar(this, 185, -400));
+		obstacleCars.add(new ObstacleCar(this, 285, -700));
+		obstacleCars.add(new ObstacleCar(this, 385, -1000));
+		obstacleCars.add(new ObstacleCar(this, 185, -900));
+		obstacleCars.add(new ObstacleCar(this, 285, -500));
 		
-		policeCar = new PoliceCar(this, 180, -500);
+		policeCar = new PoliceCar(this, 180, -800);
 		
 		textEntry = new TextEntry(this);
 			//Choose the first message
@@ -159,7 +159,10 @@ public class GameScreen extends Screen{
 		
 		notification.paint(graphic2D);
 		
+		graphic.setFont(new Font("Serif", Font.BOLD, 20));
 		graphic.drawString("Score: "+ String.valueOf(getScore()), 500, 40); 
+		
+		graphic.drawString("Timer: "+ String.valueOf(timerValue), 25, 375);
 		
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
