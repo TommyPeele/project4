@@ -16,40 +16,31 @@ public class StartScreen extends Screen{
 	
 	public void initGUI(){
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
-		JLabel instruction = new JLabel();
 		JButton startButton = new JButton("Start Game");
+		JButton instructionButton = new JButton("Instructions to the Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
 		
 		setLayout(null);
 		
 		background.setBounds(0,0,600,400);
-		instruction.setBounds(50,50,500,150);
-		startButton.setBounds(200,200,200,50);
-		infoButton.setBounds(200,270,200,50);
-		exitButton.setBounds(200,340,200,50);
-
-		instruction.setText("<html>Use the left and right arrows to move the car between lanes.<br>"
-		+ "A red circle in the upper left corner will flash when you have a new text message!<br>"
-		+ "Use the down arrow to pull down the text screen<br>" 
-		+ "Use the up arrow to pull up the text screen<br>"
-		+ "Type the text and press Enter to send the text<br>"
-		+ "Avoid texting with a police car on the road<br>"
-		+ "Avoid accidents with other cars</html>");
-		
-		instruction.setHorizontalAlignment(SwingConstants.CENTER);
+		instructionButton.setBounds(200,200,200,40);
+		startButton.setBounds(200,250,200,40);
+		infoButton.setBounds(200,300,200,40);
+		exitButton.setBounds(200,350,200,40);
 
 		startButton.addActionListener(new StartButtonListener());
+		instructionButton.addActionListener(new InstructionButtonListerner());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 		
 		background.setOpaque(false);
 		
 		add(background);
-		add(instruction);
-		add(startButton);
-		add(infoButton);
-		add(exitButton);
+		background.add(startButton);
+		background.add(instructionButton);
+		background.add(infoButton);
+		background.add(exitButton);
 	}
 	
 	class StartButtonListener implements ActionListener {
@@ -62,6 +53,16 @@ public class StartScreen extends Screen{
         	//requestFocusInWindow();
         	game.start();
         	game.currentScreen.requestFocusInWindow();
+        }
+    }
+    
+    	class InstructionButtonListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+        	game.getContentPane().removeAll();
+        	game.currentScreen = new InstructionScreen(game);
+        	game.getContentPane().add(game.currentScreen);
+        	game.getContentPane().validate();
         }
     }
 	
