@@ -4,10 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+//import StartScreen.StartButtonListener;
 
 
 public class InstructionScreen extends Screen{
@@ -16,7 +21,9 @@ public class InstructionScreen extends Screen{
 	
 	public InstructionScreen(Game game){
 		super(game);
+		
 		initGUI();
+		
 	}
 	
 	public void initGUI(){
@@ -34,12 +41,16 @@ public class InstructionScreen extends Screen{
 		instruction.setHorizontalAlignment(SwingConstants.CENTER);
 		setLayout(null);
 		
+		startButton.addActionListener(new StartButtonListener());
+		
 		instruction.setBounds(50,150,500,150);
 		startButton.setBounds(200,320,200,50);
 
 		add(instruction);
 		add(startButton);
+		
 	}
+	
 	
 	class StartButtonListener implements ActionListener {
 

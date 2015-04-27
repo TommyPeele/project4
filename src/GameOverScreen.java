@@ -28,7 +28,7 @@ public class GameOverScreen extends Screen{
 					+ " makes you 23x more likely to crash";
 		}
 		else {
-			warning = "You were just caught texting while driving!";
+			warning = "You were just caught texting while driving! In DC, you would have been fined 100 USD!";
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);

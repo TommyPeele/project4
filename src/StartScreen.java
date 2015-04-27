@@ -64,6 +64,7 @@ public class StartScreen extends Screen{
         	game.currentScreen = new InstructionScreen(game);
         	game.getContentPane().add(game.currentScreen);
         	game.getContentPane().validate();
+        	game.currentScreen.requestFocusInWindow();
         }
     }
 	
@@ -74,6 +75,7 @@ public class StartScreen extends Screen{
         	game.currentScreen = new InfoScreen(game);
         	game.getContentPane().add(game.currentScreen);
         	game.getContentPane().validate();
+        	game.currentScreen.requestFocusInWindow();
         }
     }
 	
