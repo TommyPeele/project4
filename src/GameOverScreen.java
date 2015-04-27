@@ -3,7 +3,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-
 public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
@@ -33,31 +32,28 @@ public class GameOverScreen extends Screen{
 		add(exitButton);
 	}
 	
-	class StartButtonListener implements ActionListener {
-
-        public void actionPerformed(ActionEvent e) {
+	class StartButtonListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
         	game.getContentPane().removeAll();
         	game.currentScreen = new GameScreen(game);
         	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	game.getContentPane().validate();
         	game.start();
         	game.currentScreen.requestFocusInWindow();
         }
     }
 	
-	class InfoButtonListener implements ActionListener {
-
-        public void actionPerformed(ActionEvent e) {
+	class InfoButtonListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
         	game.getContentPane().removeAll();
         	game.currentScreen = new InfoScreen(game);
         	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	game.getContentPane().validate();
         }
     }
 	
-	class ExitButtonListener implements ActionListener {
-
-        public void actionPerformed(ActionEvent e) {
+	class ExitButtonListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
         	System.exit(ABORT);
         }
     }

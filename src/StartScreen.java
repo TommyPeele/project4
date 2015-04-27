@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 
 public class StartScreen extends Screen{
@@ -31,7 +32,7 @@ public class StartScreen extends Screen{
 		+ "Use the up arrow to pull up the text screen\n"
 		+ "Type the text and press Enter to send the text\n"
 		+ "Avoid texting with a police car on the road\n"
-		+ "Avoid accidents with other cars")
+		+ "Avoid accidents with other cars");
 		
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
@@ -50,7 +51,7 @@ public class StartScreen extends Screen{
         	game.getContentPane().removeAll();
         	game.currentScreen = new GameScreen(game);
         	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	game.getContentPane().validate();
         	//requestFocusInWindow();
         	game.start();
         	game.currentScreen.requestFocusInWindow();
@@ -63,7 +64,7 @@ public class StartScreen extends Screen{
         	game.getContentPane().removeAll();
         	game.currentScreen = new InfoScreen(game);
         	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	game.getContentPane().validate();
         }
     }
 	

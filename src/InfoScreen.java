@@ -24,7 +24,7 @@ public class InfoScreen extends Screen{
 		JLabel webQuote = new JLabel("13% of Drivers aged 18-20 involved in car wrecks admitted to talking or texting on the time of their crash.");
 		JLabel multiQuote = new JLabel("Multitasking doesn’t just slow you down and increase the number of mistakes you make; it temporarily changes the way your brain works.");
 		
-		JButton startButton = new JButton("Return to Main Screen")
+		JButton startButton = new JButton("Return to Main Screen");
 		
 		setLayout(null);
 		
@@ -68,7 +68,7 @@ public class InfoScreen extends Screen{
         	game.getContentPane().removeAll();
         	game.currentScreen = new StartScreen(game);
         	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().revalidate();
+        	game.getContentPane().validate();
         }
     }
 
