@@ -1,7 +1,11 @@
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 
 public class InfoScreen extends Screen{
@@ -39,7 +43,8 @@ public class InfoScreen extends Screen{
 	class WebButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	open("http://www.textinganddrivingsafety.com/texting-and-driving-stats/");
+        	//URI myUri = URI("http://www.textinganddrivingsafety.com/texting-and-driving-stats/");
+        	//open(myUri);
         }
     }
 	
@@ -47,7 +52,7 @@ public class InfoScreen extends Screen{
 	class MultiButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	open("http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/");
+        	//open("http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/");
         }
      
     }

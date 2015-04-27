@@ -13,3 +13,5 @@
 /InfoScreen.class
 /InfoScreen$ExitButtonListener.class
 /InfoScreen$StartButtonListener.class
+/InfoScreen$MultiButtonListener.class
+/InfoScreen$WebButtonListener.class
