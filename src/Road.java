@@ -8,17 +8,17 @@ public class Road{
 	private final static int ROAD_WIDTH = 300;
 	private final static int ROAD_HEIGHT = 400;
 	
-	private int stripY = 0;
+	private int stripY = -300;
 	
 	public Road(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
 	}
 	
 	public void moveStrips(){
-			if(stripY >= 400)
+			if(stripY >= 0)
 				stripY = -10;
 			else
-				stripY = stripY + 60;
+				stripY = stripY + 40;
 	}
 	
 	public void paint(Graphics2D graphic2D){
@@ -39,6 +39,16 @@ public class Road{
 		graphic2D.fillRect(345, stripY + 160, 5, 40);
 		graphic2D.fillRect(245, stripY + 240, 5, 40);
 		graphic2D.fillRect(345, stripY + 240, 5, 40);
+		graphic2D.fillRect(245, stripY + 320, 5, 40);
+		graphic2D.fillRect(345, stripY + 320, 5, 40);
+		graphic2D.fillRect(245, stripY + 400, 5, 40);
+		graphic2D.fillRect(345, stripY + 400, 5, 40);
+		graphic2D.fillRect(245, stripY + 480, 5, 40);
+		graphic2D.fillRect(345, stripY + 480, 5, 40);
+		graphic2D.fillRect(245, stripY + 560, 5, 40);
+		graphic2D.fillRect(345, stripY + 560, 5, 40);
+		graphic2D.fillRect(245, stripY + 640, 5, 40);
+		graphic2D.fillRect(345, stripY + 640, 5, 40);
 		
 		graphic2D.setColor(Color.GRAY.darker());
 		graphic2D.fillRect(135, 0, 15, ROAD_HEIGHT);
