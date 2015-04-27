@@ -75,7 +75,7 @@ public class GameScreen extends Screen{
 		
 		notification = new Notification(this);
 		
-		System.out.println("Before Init");
+		//System.out.println("Before Init");
 		
 		initiateListeners();
 	}
@@ -100,7 +100,7 @@ public class GameScreen extends Screen{
 			}
 		};
 		
-		System.out.println("Before add");
+		//System.out.println("Before add");
 		addKeyListener(listener);
 		requestFocusInWindow();
 		setFocusable(true);
@@ -115,7 +115,7 @@ public class GameScreen extends Screen{
     	game.getContentPane().add(game.currentScreen);
     	game.getContentPane().validate();
 		
-		System.out.println("Game Over");
+		//System.out.println("Game Over");
 	}
 	
 	public int getScore(){
