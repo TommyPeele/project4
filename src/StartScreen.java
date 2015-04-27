@@ -38,11 +38,7 @@ public class StartScreen extends Screen{
 		+ "Avoid accidents with other cars</html>");
 		
 		instruction.setHorizontalAlignment(SwingConstants.CENTER);
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> origin/master
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
