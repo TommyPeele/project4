@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+
 public class GameScreen extends Screen{
 
 	private int playerScore;
@@ -15,7 +17,7 @@ public class GameScreen extends Screen{
 	private ArrayList<ObstacleCar> obstacleCars;
 	private TextEntry textEntry;
 	private Notification notification;
-	
+	private JLabel score;
 	//Foliage detail
 	private ArrayList<Dirt> dirtBlocks;
 	
@@ -43,7 +45,8 @@ public class GameScreen extends Screen{
 		dirtBlocks.add(new Dirt(this, 480, 110));
 		dirtBlocks.add(new Dirt(this, 570, 10));
 		
-		
+		score = new JLabel("Score: 0");
+		score.setBounds(550, 10, 40, 20);
 		
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
@@ -52,6 +55,8 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(this, 280, -200));
 		obstacleCars.add(new ObstacleCar(this, 380, -300));
 		
+		
+		add(score);
 		textEntry = new TextEntry(this);
 			//Choose the first message
 		textEntry.chooseTextMessage();
@@ -99,6 +104,7 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void paint(Graphics graphic){
+		score.setText("Score: " + String.valueOf(score));
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -126,6 +132,7 @@ public class GameScreen extends Screen{
 	public void run(){
 		while(true){
 			playerCar.move();
+			playerScore++;
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
 			
@@ -134,7 +141,6 @@ public class GameScreen extends Screen{
 				if(playerCar.checkCollision(eachObstacleCar))
 					gameOver();
 			}
-			
 			repaint();
 			
 			try{
