@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -15,7 +16,7 @@ public class StartScreen extends Screen{
 	}
 	
 	public void initGUI(){
-		JLabel background = new JLabel(new ImageIcon("/res/car-accident.jpg"));
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JLabel instruction = new JLabel();
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
@@ -46,10 +47,10 @@ public class StartScreen extends Screen{
 		background.setOpaque(false);
 		
 		add(background);
-		add(instruction);
-		add(startButton);
-		add(infoButton);
-		add(exitButton);
+		background.add(instruction);
+		background.add(startButton);
+		background.add(infoButton);
+		background.add(exitButton);
 	}
 	
 	class StartButtonListener implements ActionListener {

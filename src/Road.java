@@ -18,7 +18,7 @@ public class Road{
 			if(stripY >= 0)
 				stripY = -300;
 			else
-				stripY = stripY + 40;
+				stripY = stripY + 20;
 	}
 	
 	public void paint(Graphics2D graphic2D){
