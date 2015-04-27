@@ -20,7 +20,7 @@ public class TextEntry{
 	
 	private List<String> messages = Arrays.asList("I will be right there", "Hold on, I am on my way",
 			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
-			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?");
+			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?", "Nothing, hbu?");
 	
 	private int noOfMessages = messages.size();
 	

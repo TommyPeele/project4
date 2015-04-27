@@ -168,16 +168,12 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void run(){
-<<<<<<< HEAD
+
 		while(running){
 			playerScore++;
 			playerCar.move();
 			policeCar.move();
-=======
-		while(true){
-			playerCar.move();
-			playerScore++;
->>>>>>> origin/master
+
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
 			
