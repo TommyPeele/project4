@@ -24,13 +24,13 @@ public class PlayerCar extends Car{
 	public void keyPressed(KeyEvent event){
 		if(event.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			System.out.println("Left");
+			//System.out.println("Left");
 			if(lane > 0 && velocity == 0)
 				velocity = -1;
 		}
 		if(event.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
-			System.out.println("Right");
+			//System.out.println("Right");
 			if(lane < 2 && velocity == 0)
 				velocity = 1;
 		}
