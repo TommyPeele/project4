@@ -15,7 +15,7 @@ public class GameScreen extends Screen{
 	private ArrayList<ObstacleCar> obstacleCars;
 	private TextEntry textEntry;
 	private Notification notification;
-	private JLabel score;
+	
 	//Foliage detail
 	private ArrayList<Dirt> dirtBlocks;
 	
@@ -30,10 +30,6 @@ public class GameScreen extends Screen{
 		setFocusable(true);
 		
 		road = new Road(this);
-		
-		score = new JLabel("Score: 0");
-		score.setBounds(550, 10, 40, 20);
-		
 		
 		dirtBlocks = new ArrayList<Dirt>();
 		dirtBlocks.add(new Dirt(this, 50, 300));
@@ -107,7 +103,6 @@ public class GameScreen extends Screen{
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		score.setText("Score: " + String.valueOf(playerScore));
 		
 		road.paint(graphic2D);
 		
@@ -130,7 +125,6 @@ public class GameScreen extends Screen{
 	@Override
 	public void run(){
 		while(true){
-			playerScore++;
 			playerCar.move();
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
