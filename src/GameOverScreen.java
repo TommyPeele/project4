@@ -24,11 +24,12 @@ public class GameOverScreen extends Screen{
 
 	
 		if (state == gameOverCollision) {
-			warning = "You just collided with another vehicle! Texting while driving"
-					+ " makes you 23x more likely to crash";
+			warning = "You just collided with another vehicle! <br>"
+					+ "Texting while driving makes you 23x more likely to crash";
 		}
 		else {
-			warning = "You were just caught texting while driving!";
+			warning = "You were just caught texting while driving! <br>"
+					+ "You would be fined $100 in DC";
 		}
 		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
