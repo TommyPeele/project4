@@ -7,8 +7,10 @@ public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 	
-	public GameOverScreen(Game game){
+	
+	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
+		if (state == )
 		initGUI();
 	}
 	

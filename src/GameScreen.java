@@ -25,6 +25,9 @@ public class GameScreen extends Screen{
 	
 	private static final long serialVersionUID = 0;
 	
+	private static final int gameOverCollision = 0;
+	private static final int gameOverDetection = 1;
+	
 	private boolean running = true;
 	
 	private boolean firstRend = false;
@@ -106,12 +109,12 @@ public class GameScreen extends Screen{
 		setFocusable(true);
 	}
 	
-	public void gameOver(){
+	public void gameOver(int state){
 		
 		running = false;
 		
 		game.getContentPane().removeAll();
-    	game.currentScreen = new GameOverScreen(game);
+    	game.currentScreen = new GameOverScreen(game, state, playerScore);
     	game.getContentPane().add(game.currentScreen);
     	game.getContentPane().validate();
 		
@@ -168,7 +171,10 @@ public class GameScreen extends Screen{
 	
 	@Override
 	public void run(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 350c6d2eea698782bf524ef9789446b7471c0155
 		while(running){
 			playerScore++;
 			playerCar.move();
@@ -178,15 +184,15 @@ public class GameScreen extends Screen{
 				eachDirtBlock.move();
 			
 			if(playerCar.checkPoliceCollision(policeCar))
-				gameOver();
+				gameOver(gameOverCollision);
 			
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
-				gameOver();
+				gameOver(gameOverDetection);
 			
 			for(ObstacleCar eachObstacleCar : obstacleCars){
 				eachObstacleCar.move();
 				if(playerCar.checkCollision(eachObstacleCar))
-					gameOver();
+					gameOver(gameOverCollision);
 			}
 			repaint();
 			
