@@ -3,8 +3,6 @@ import java.awt.Graphics2D;
 
 public class ObstacleCar extends Car{
 	
-	private int lane;
-	
 	public ObstacleCar(GameScreen gameScreen, int x, int y){
 		super(gameScreen, x, y);
 		chooseLane();
@@ -14,13 +12,13 @@ public class ObstacleCar extends Car{
 		lane = (int)(Math.random() * 3);
 		switch(lane){
 		case 0:
-			x = 180;
+			x = 185;
 			break;
 		case 1:
-			x = 280;
+			x = 285;
 			break;
 		case 2:
-			x = 380;
+			x = 385;
 			break;
 		default:
 			break;

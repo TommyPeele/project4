@@ -43,22 +43,21 @@ public class GameScreen extends Screen{
 		dirtBlocks.add(new Dirt(this, 480, 110));
 		dirtBlocks.add(new Dirt(this, 570, 10));
 		
-		
-		
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 		
 		obstacleCars.add(new ObstacleCar(this, 180, -100));
-		obstacleCars.add(new ObstacleCar(this, 280, -200));
-		obstacleCars.add(new ObstacleCar(this, 380, -300));
+		obstacleCars.add(new ObstacleCar(this, 280, -250));
+		obstacleCars.add(new ObstacleCar(this, 380, -400));
+		obstacleCars.add(new ObstacleCar(this, 380, -500));
 		
 		textEntry = new TextEntry(this);
-			//Choose the first message
+		//Choose the first message
 		textEntry.chooseTextMessage();
 		
 		notification = new Notification(this);
 		
-		System.out.println("Before Init");
+		//System.out.println("Before Init");
 		
 		initiateListeners();
 	}
@@ -83,7 +82,7 @@ public class GameScreen extends Screen{
 			}
 		};
 		
-		System.out.println("Before add");
+		//System.out.println("Before add");
 		addKeyListener(listener);
 		requestFocusInWindow();
 		setFocusable(true);
@@ -117,9 +116,7 @@ public class GameScreen extends Screen{
 		
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
-			textEntry.paint(graphic2D);
-		
-		
+			textEntry.paint(graphic2D);		
 	}
 	
 	@Override

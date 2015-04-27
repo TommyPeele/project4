@@ -6,34 +6,29 @@ import java.awt.event.KeyEvent;
 public class PlayerCar extends Car{
 	
 	//TESTING NUMBERS, NOT FINAL
-	public static int DEFAULT_X = 280; //player car starts in center lane
+	public static int DEFAULT_X = 285; //player car starts in center lane
 	public static int DEFAULT_Y = 310; //player car stays at bottom of screen as cars drive towards it
 	
-	private int lane = 1; //0 is left lane, 1 is center lane, 2 is right lane
 	private int velocity = 0; //-1 is moving left, 0 is at rest, 1 is moving right
 	private int moveCount = 0; //think of a better name
 	
 	public PlayerCar(GameScreen gameScreen){
 		super(gameScreen, DEFAULT_X, DEFAULT_Y);
+		lane = 1;
 	}
 	
 	public PlayerCar(GameScreen gameScreen, int x, int y){
 		super(gameScreen, x, y);
+		lane = 1;
 	}
 	
 	public void keyPressed(KeyEvent event){
 		if(event.getKeyCode() == KeyEvent.VK_LEFT)
-		{
-			System.out.println("Left");
 			if(lane > 0 && velocity == 0)
 				velocity = -1;
-		}
 		if(event.getKeyCode() == KeyEvent.VK_RIGHT)
-		{
-			System.out.println("Right");
 			if(lane < 2 && velocity == 0)
 				velocity = 1;
-		}
 	}
 	
 	public void move(){

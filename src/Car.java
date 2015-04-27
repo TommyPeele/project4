@@ -7,10 +7,11 @@ public abstract class Car{
 	
 	protected int x;
 	protected int y;
+	protected int lane; //0 is left lane, 1 is center lane, 2 is right lane
 	
 	//TESTING NUMBERS, NOT FINAL
-	public static final int CAR_WIDTH = 30;
-	public static final int CAR_HEIGHT = 60;
+	public static final int CAR_WIDTH = 25;
+	public static final int CAR_HEIGHT = 50;
 	
 	public Car(GameScreen gameScreen, int x, int y){
 		this.gameScreen = gameScreen;
