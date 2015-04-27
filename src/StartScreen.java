@@ -15,6 +15,7 @@ public class StartScreen extends Screen{
 	}
 	
 	public void initGUI(){
+		JLabel background = new JLabel(new ImageIcon("/res/car-accident.jpg"));
 		JLabel instruction = new JLabel();
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
@@ -22,6 +23,7 @@ public class StartScreen extends Screen{
 		
 		setLayout(null);
 		
+		background.setBounds(0,0,600,400);
 		instruction.setBounds(50,50,500,150);
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
@@ -41,6 +43,9 @@ public class StartScreen extends Screen{
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 		
+		background.setOpaque(false);
+		
+		add(background);
 		add(instruction);
 		add(startButton);
 		add(infoButton);
@@ -50,7 +55,6 @@ public class StartScreen extends Screen{
 	class StartButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-        	System.out.println("Start");
         	game.getContentPane().removeAll();
         	game.currentScreen = new GameScreen(game);
         	game.getContentPane().add(game.currentScreen);
