@@ -31,7 +31,7 @@ public class StartScreen extends Screen{
 		exitButton.setBounds(200,350,200,40);
 
 		startButton.addActionListener(new StartButtonListener());
-		instructionButton.addActionListener(new InstructionButtonListerner());
+		instructionButton.addActionListener(new InstructionButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 		
