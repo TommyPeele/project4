@@ -2,25 +2,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
-	
+	private static final int gameOverCollision = 0;
+	private static final int gameOverDetection = 1;
+	private String warning;
 	
 	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
-		if (state == )
-		initGUI();
+		
+		initGUI(state, playerScore);
 	}
 	
-	public void initGUI(){
+	public void initGUI(int state, int playerScore){
+		if (state == gameOverCollision) {
+			warning = "You are caught texting by the police!";
+		}
+		else {
+			warning = "You just had an accident";
+		}
+		String msg = "<html>" + warning + "<br>Your score is: " + String.valueOf(playerScore) + "</html>";
+		JLabel message = new JLabel(msg);
+		
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
 		
 		setLayout(null);
 		
+		message.setBounds(100,50,400,120);
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
@@ -29,6 +42,7 @@ public class GameOverScreen extends Screen{
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 		
+		add(message);
 		add(startButton);
 		add(infoButton);
 		add(exitButton);
