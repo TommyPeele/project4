@@ -27,6 +27,8 @@ public class InstructionScreen extends Screen{
 	}
 	
 	public void initGUI(){
+		
+		setBackground(Color.CYAN);
 		JLabel instruction = new JLabel();
 		JButton startButton = new JButton("Return to Main Screen");
 		
@@ -43,7 +45,7 @@ public class InstructionScreen extends Screen{
 		
 		startButton.addActionListener(new StartButtonListener());
 		
-		instruction.setBounds(50,150,500,150);
+		instruction.setBounds(50,100,500,150);
 		startButton.setBounds(200,320,200,50);
 
 		add(instruction);

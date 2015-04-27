@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,7 +32,7 @@ public class StartScreen extends Screen{
 		setLayout(null);
 		
 		background.setBounds(0,0,600,400);
-		title.setBounds(100,100,400,80);
+		title.setBounds(100,20,400,80);
 		instructionButton.setBounds(200,200,200,40);
 		startButton.setBounds(200,250,200,40);
 		infoButton.setBounds(200,300,200,40);
@@ -43,7 +44,8 @@ public class StartScreen extends Screen{
 		exitButton.addActionListener(new ExitButtonListener());
 		
 		background.setOpaque(false);
-		title.setFont(new Font(("Serif", Font.BOLD, 20));
+		title.setFont(new Font("Serif", Font.BOLD, 40));
+		title.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		add(background);
 		background.add(title);

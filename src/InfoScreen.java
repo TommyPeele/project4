@@ -26,12 +26,7 @@ public class InfoScreen extends Screen{
 	
 	public void initGUI(){
 		
-		setBackground(Color.CYAN);
-		
-		
-		
-		
-		
+		setBackground(Color.CYAN);		
 		
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
