@@ -20,7 +20,7 @@ public class TextEntry{
 	
 	private List<String> messages = Arrays.asList("I will be right there", "Hold on, I am on my way",
 			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
-			"Yeah, I already bought everything");
+			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?");
 	
 	private int noOfMessages = messages.size();
 	
@@ -79,6 +79,10 @@ public class TextEntry{
 		return visible;
 	}
 	
+	public void setVisFalse(){
+		visible = false;
+	}
+	
 	public void keyPressed(KeyEvent event){
 		if(!visible){
 			if(event.getKeyCode() == KeyEvent.VK_DOWN)
@@ -134,7 +138,7 @@ public class TextEntry{
 		
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		graphics2D.drawString(inst, 30, 100);
+		graphics2D.drawString(inst, 30, 60);
 		graphics2D.drawString(messageToType, 30, 140);
 		graphics2D.drawString(userMessage, 30, 220);
 	}

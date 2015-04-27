@@ -1,11 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class ObstacleCar extends Car{
+public class PoliceCar extends Car{
 	
 	private int lane;
 	
-	public ObstacleCar(GameScreen gameScreen, int x, int y){
+	public PoliceCar(GameScreen gameScreen, int x, int y){
 		super(gameScreen, x, y);
 		chooseLane();
 	}
@@ -29,7 +29,7 @@ public class ObstacleCar extends Car{
 	
 	public void move(){
 		if(y == 500){
-			y = -300;
+			y = -2200;
 			chooseLane();
 		}
 		else
@@ -38,7 +38,7 @@ public class ObstacleCar extends Car{
 
 	@Override
 	public void paint(Graphics2D graphic2D){
-		graphic2D.setColor(Color.RED);
+		graphic2D.setColor(Color.BLUE.darker());
 		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 
