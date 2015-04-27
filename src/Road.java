@@ -16,7 +16,7 @@ public class Road{
 	
 	public void moveStrips(){
 			if(stripY >= 0)
-				stripY = -10;
+				stripY = -300;
 			else
 				stripY = stripY + 40;
 	}
@@ -49,6 +49,8 @@ public class Road{
 		graphic2D.fillRect(345, stripY + 560, 5, 40);
 		graphic2D.fillRect(245, stripY + 640, 5, 40);
 		graphic2D.fillRect(345, stripY + 640, 5, 40);
+		graphic2D.fillRect(245, stripY + 720, 5, 40);
+		graphic2D.fillRect(345, stripY + 720, 5, 40);
 		
 		graphic2D.setColor(Color.GRAY.darker());
 		graphic2D.fillRect(135, 0, 15, ROAD_HEIGHT);
