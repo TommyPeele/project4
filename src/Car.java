@@ -39,6 +39,11 @@ public abstract class Car{
 		return new Rectangle(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 
-	public abstract void paint(Graphics2D graphic2D);
+	public void paint(Graphics2D graphic2D){
+		setPaintColor(graphic2D);
+		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);
+	}
+
+	protected abstract void setPaintColor(Graphics2D graphic2D);
 
 }

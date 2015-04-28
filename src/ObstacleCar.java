@@ -33,11 +33,10 @@ public class ObstacleCar extends Car{
 		else
 			y = y + 10;
 	}
-
+	
 	@Override
-	public void paint(Graphics2D graphic2D){
+	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.RED);
-		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 
 }

@@ -66,14 +66,9 @@ public class GameScreen extends Screen{
 		policeCar = new PoliceCar(this, 180, -800);
 
 		textEntry = new TextEntry(this);
-		//Choose the first message
-		textEntry.chooseTextMessage();
-		//paintInitialTextEntry(Graphic );
-
-
+		textEntry.chooseTextMessage(); //Choose the first message
+		
 		notification = new Notification(this);
-
-		System.out.println("Before Init");
 
 		initiateListeners();
 	}
@@ -98,14 +93,12 @@ public class GameScreen extends Screen{
 			}
 		};
 
-		System.out.println("Before add");
 		addKeyListener(listener);
 		requestFocusInWindow();
 		setFocusable(true);
 	}
 
 	public void gameOver(int state){
-
 		running = false;
 
 		game.getContentPane().removeAll();
@@ -131,11 +124,9 @@ public class GameScreen extends Screen{
 
 	@Override
 	public void paint(Graphics graphic){
-
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
 
 		if(!textEntry.isVisible() && !firstRend){
 			textEntry.paint(graphic2D);
@@ -162,12 +153,9 @@ public class GameScreen extends Screen{
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
 			textEntry.paint(graphic2D);
-
-
 	}
 
-	public void timerIncrease()
-	{
+	public void timerIncrease(){
 		timerValue += 100;
 	}
 

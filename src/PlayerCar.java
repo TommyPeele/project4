@@ -22,24 +22,16 @@ public class PlayerCar extends Car{
 
 	public void keyPressed(KeyEvent event){
 		if(event.getKeyCode() == KeyEvent.VK_LEFT)
-		{
-			//System.out.println("Left");
 			if(lane > 0 && velocity == 0)
 				velocity = -1;
-		}
 		if(event.getKeyCode() == KeyEvent.VK_RIGHT)
-		{
-			//System.out.println("Right");
 			if(lane < 2 && velocity == 0)
 				velocity = 1;
-		}
 	}
 
 	public void move(){
 		switch(velocity){
 		case -1:
-			//System.out.println("Going Left");
-			//System.out.println(velocity);
 			x = x - 10;
 			moveCount++;
 			if(moveCount == 10){
@@ -49,8 +41,6 @@ public class PlayerCar extends Car{
 			}
 			break;
 		case 1:
-			//System.out.println("Going Right");
-			//System.out.println(velocity);
 			x = x + 10;
 			moveCount++;
 			if(moveCount == 10){
@@ -78,10 +68,10 @@ public class PlayerCar extends Car{
 		else
 			return false;
 	}
-
-	public void paint(Graphics2D graphic2D){
+	
+	@Override
+	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.GREEN);
-		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 
 }
