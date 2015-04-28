@@ -4,20 +4,19 @@ import java.awt.event.KeyEvent;
 
 public class PlayerCar extends Car{
 
-	//TESTING NUMBERS, NOT FINAL
-	public static int DEFAULT_X = 285; //player car starts in center lane
-	public static int DEFAULT_Y = 310; //player car stays at bottom of screen as cars drive towards it
+	public static int DEFAULT_X = 285; //Player car starts in center lane
+	public static int DEFAULT_Y = 310; //Player car stays at bottom of screen as cars drive towards it
 	
 	private int velocity = 0; //-1 is moving left, 0 is at rest, 1 is moving right
-	private int moveCount = 0; //think of a better name
+	private int moveCount = 0;
 
-	public PlayerCar(GameScreen gameScreen){
-		super(gameScreen, DEFAULT_X, DEFAULT_Y);
+	public PlayerCar(){
+		super(DEFAULT_X, DEFAULT_Y);
 		lane = 1;
 	}
 
-	public PlayerCar(GameScreen gameScreen, int x, int y){
-		super(gameScreen, x, y);
+	public PlayerCar(int x, int y){
+		super(x, y);
 	}
 
 	public void keyPressed(KeyEvent event){
@@ -58,12 +57,8 @@ public class PlayerCar extends Car{
 		return getBounds().intersects(obstacleCar.getBounds());
 	}
 
-	public boolean checkPoliceCollision(PoliceCar policeCar){
-		return getBounds().intersects(policeCar.getBounds());
-	}
-
-	public boolean checkPoliceDetection(PoliceCar policeCar, TextEntry te){
-		if(te.isVisible() && DEFAULT_Y == policeCar.getY())
+	public boolean checkPoliceDetection(PoliceCar policeCar, TextEntry textEntry){
+		if(y == policeCar.getY() && textEntry.isVisible())
 			return true;
 		else
 			return false;

@@ -3,8 +3,6 @@ import java.awt.Rectangle;
 
 public abstract class Car{
 
-	protected GameScreen gameScreen;
-
 	protected int x;
 	protected int y;
 	protected int lane; //0 is left lane, 1 is center lane, 2 is right lane
@@ -13,8 +11,7 @@ public abstract class Car{
 	public static final int CAR_WIDTH = 30;
 	public static final int CAR_HEIGHT = 60;
 
-	public Car(GameScreen gameScreen, int x, int y){
-		this.gameScreen = gameScreen;
+	public Car(int x, int y){
 		this.x = x;
 		this.y = y;
 	}

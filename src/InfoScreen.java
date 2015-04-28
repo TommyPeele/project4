@@ -51,20 +51,17 @@ public class InfoScreen extends Screen{
 		add(startButton);
 	}
 
-	class WebButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class WebButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			String link = "http://www.textinganddrivingsafety.com/texting-and-driving-stats/";
 			try{
 				URI myUri = new URI(link);
 				try{
 					java.awt.Desktop.getDesktop().browse(myUri);
 				} catch(IOException e1){
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			} catch(URISyntaxException e1){
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -78,19 +75,16 @@ public class InfoScreen extends Screen{
 				try{
 					java.awt.Desktop.getDesktop().browse(myUri);
 				} catch(IOException e1){
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			} catch(URISyntaxException e1){
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 	}
 
-	class StartButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class StartButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
 			game.setCurrentScreen(new StartScreen(game));
 			game.getContentPane().add(game.getCurrentScreen());

@@ -3,13 +3,10 @@ import java.awt.Graphics2D;
 
 public class Dirt{
 
-	private GameScreen gameScreen;
-
 	private int x;
 	private int y;
 
-	public Dirt(GameScreen gameScreen, int x, int y){
-		this.gameScreen = gameScreen;
+	public Dirt(int x, int y){
 		this.x = x;
 		this.y = y;
 	}

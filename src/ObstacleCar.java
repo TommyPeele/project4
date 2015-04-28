@@ -3,8 +3,8 @@ import java.awt.Graphics2D;
 
 public class ObstacleCar extends Car{
 
-	public ObstacleCar(GameScreen gameScreen, int x, int y){
-		super(gameScreen, x, y);
+	public ObstacleCar(int x, int y){
+		super(x, y);
 		chooseLane();
 	}
 

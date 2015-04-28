@@ -3,16 +3,10 @@ import java.awt.Graphics2D;
 
 public class Road{
 
-	private GameScreen gameScreen;
-
 	private final static int ROAD_WIDTH = 300;
 	private final static int ROAD_HEIGHT = 400;
 
 	private int stripY = -300;
-
-	public Road(GameScreen gameScreen){
-		this.gameScreen = gameScreen;
-	}
 
 	public void moveStrips(){
 		if(stripY >= 0)

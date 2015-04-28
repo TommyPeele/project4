@@ -3,8 +3,8 @@ import java.awt.Graphics2D;
 
 public class PoliceCar extends ObstacleCar{
 
-	public PoliceCar(GameScreen gameScreen, int x, int y){
-		super(gameScreen, x, y);
+	public PoliceCar(int x, int y){
+		super(x, y);
 	}
 
 	@Override

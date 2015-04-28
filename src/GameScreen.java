@@ -40,30 +40,31 @@ public class GameScreen extends Screen{
 		setBackground(Color.GREEN.darker());
 		setFocusable(true);
 
-		road = new Road(this);
+		road = new Road();
 
 		dirtBlocks = new ArrayList<Dirt>();
-		dirtBlocks.add(new Dirt(this, 50, 300));
-		dirtBlocks.add(new Dirt(this, 20, 240));
-		dirtBlocks.add(new Dirt(this, 35, 110));
-		dirtBlocks.add(new Dirt(this, 90, 50));
-		dirtBlocks.add(new Dirt(this, 75, 0));
+		dirtBlocks.add(new Dirt(50, 300));
+		dirtBlocks.add(new Dirt(20, 240));
+		dirtBlocks.add(new Dirt(35, 110));
+		dirtBlocks.add(new Dirt(90, 50));
+		dirtBlocks.add(new Dirt(75, 0));
 
-		dirtBlocks.add(new Dirt(this, 500, 380));
-		dirtBlocks.add(new Dirt(this, 530, 240));
-		dirtBlocks.add(new Dirt(this, 480, 110));
-		dirtBlocks.add(new Dirt(this, 570, 10));
+		dirtBlocks.add(new Dirt(500, 380));
+		dirtBlocks.add(new Dirt(530, 240));
+		dirtBlocks.add(new Dirt(480, 110));
+		dirtBlocks.add(new Dirt(570, 10));
 
-		playerCar = new PlayerCar(this);
+		playerCar = new PlayerCar();
 		obstacleCars = new ArrayList<ObstacleCar>();
 
-		obstacleCars.add(new ObstacleCar(this, 185, -400));
-		obstacleCars.add(new ObstacleCar(this, 285, -700));
-		obstacleCars.add(new ObstacleCar(this, 385, -1000));
-		obstacleCars.add(new ObstacleCar(this, 185, -900));
-		obstacleCars.add(new ObstacleCar(this, 285, -500));
+		obstacleCars.add(new ObstacleCar(185, -400));
+		obstacleCars.add(new ObstacleCar(285, -700));
+		obstacleCars.add(new ObstacleCar(385, -1000));
+		obstacleCars.add(new ObstacleCar(185, -900));
+		obstacleCars.add(new ObstacleCar(285, -500));
 
-		policeCar = new PoliceCar(this, 180, -800);
+		policeCar = new PoliceCar(180, -800);
+		obstacleCars.add(policeCar);
 
 		textEntry = new TextEntry(this);
 		textEntry.chooseTextMessage(); //Choose the first message
@@ -139,10 +140,10 @@ public class GameScreen extends Screen{
 			eachDirtBlock.paint(graphic2D);
 
 		playerCar.paint(graphic2D);
-		policeCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
 
+		graphic2D.setColor(Color.RED);
 		notification.paint(graphic2D);
 
 		graphic.setFont(new Font("Serif", Font.BOLD, 20));
@@ -164,14 +165,16 @@ public class GameScreen extends Screen{
 		while(running){
 			playerScore++;
 			timerValue--;
+			
 			playerCar.move();
-			policeCar.move();
+			for(ObstacleCar eachObstacleCar : obstacleCars){
+				eachObstacleCar.move();
+				if(playerCar.checkCollision(eachObstacleCar))
+					gameOver(gameOverCollision);
+			}
 
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
-
-			if(playerCar.checkPoliceCollision(policeCar))
-				gameOver(gameOverCollision);
 
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
 				gameOver(gameOverDetection);
@@ -179,11 +182,6 @@ public class GameScreen extends Screen{
 			if(timerValue == 0)
 				gameOver(gameOverTimer);
 
-			for(ObstacleCar eachObstacleCar : obstacleCars){
-				eachObstacleCar.move();
-				if(playerCar.checkCollision(eachObstacleCar))
-					gameOver(gameOverCollision);
-			}
 			repaint();
 
 			try{
