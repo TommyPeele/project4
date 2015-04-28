@@ -15,18 +15,18 @@ public class GameOverScreen extends Screen{
 	private static final int gameOverDetection = 1;
 	private static final int gameOverTimer = 2;
 	private String warning;
-	
+
 	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
-		
+
 		initGUI(state, playerScore);
 	}
-	
+
 	public void initGUI(int state, int playerScore){
-		
+
 		setBackground(Color.CYAN);
 
-	
+
 		if (state == gameOverCollision) {
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
@@ -43,52 +43,52 @@ public class GameOverScreen extends Screen{
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
-		
+
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
-		
+
 		setLayout(null);
-		
+
 		message.setBounds(100,50,400,120);
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
-		
+
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
-		
+
 		add(message);
 		add(startButton);
 		add(infoButton);
 		add(exitButton);
 	}
-	
+
 	class StartButtonListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new GameScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().validate();
-        	game.start();
-        	game.currentScreen.requestFocusInWindow();
-        }
-    }
-	
+		public void actionPerformed(ActionEvent e){
+			game.getContentPane().removeAll();
+			game.setCurrentScreen(new GameScreen(game));
+			game.getContentPane().add(game.getCurrentScreen());
+			game.getContentPane().validate();
+			game.start();
+			game.getCurrentScreen().requestFocusInWindow();
+		}
+	}
+
 	class InfoButtonListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new InfoScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().validate();
-        }
-    }
-	
+		public void actionPerformed(ActionEvent e){
+			game.getContentPane().removeAll();
+			game.setCurrentScreen(new InfoScreen(game));
+			game.getContentPane().add(game.getCurrentScreen());
+			game.getContentPane().validate();
+		}
+	}
+
 	class ExitButtonListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-        	System.exit(ABORT);
-        }
-    }
+		public void actionPerformed(ActionEvent e){
+			System.exit(ABORT);
+		}
+	}
 
 }

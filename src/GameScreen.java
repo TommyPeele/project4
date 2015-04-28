@@ -23,74 +23,72 @@ public class GameScreen extends Screen{
 	private PoliceCar policeCar;
 
 	private ArrayList<Dirt> dirtBlocks;
-	
+
 	private static final int DELAY = 100;
-	
+
 	private static final long serialVersionUID = 0;
-	
+
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
 	private static final int gameOverTimer = 2;
 	private boolean running = true;
-	
+
 	private boolean firstRend = false;
-	
+
 	public GameScreen(Game game){
 		super(game);
 		setBackground(Color.GREEN.darker());
-		
 		setFocusable(true);
-		
-		
+
 		road = new Road(this);
-		
+
 		dirtBlocks = new ArrayList<Dirt>();
 		dirtBlocks.add(new Dirt(this, 50, 300));
 		dirtBlocks.add(new Dirt(this, 20, 240));
 		dirtBlocks.add(new Dirt(this, 35, 110));
 		dirtBlocks.add(new Dirt(this, 90, 50));
 		dirtBlocks.add(new Dirt(this, 75, 0));
-		
+
 		dirtBlocks.add(new Dirt(this, 500, 380));
 		dirtBlocks.add(new Dirt(this, 530, 240));
 		dirtBlocks.add(new Dirt(this, 480, 110));
 		dirtBlocks.add(new Dirt(this, 570, 10));
-		
+
 		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
-		
+
 		obstacleCars.add(new ObstacleCar(this, 185, -400));
 		obstacleCars.add(new ObstacleCar(this, 285, -700));
 		obstacleCars.add(new ObstacleCar(this, 385, -1000));
 		obstacleCars.add(new ObstacleCar(this, 185, -900));
 		obstacleCars.add(new ObstacleCar(this, 285, -500));
-		
+
 		policeCar = new PoliceCar(this, 180, -800);
-		
+
 		textEntry = new TextEntry(this);
-			//Choose the first message
+		//Choose the first message
 		textEntry.chooseTextMessage();
 		//paintInitialTextEntry(Graphic );
-		
-		
+
+
 		notification = new Notification(this);
-		
+
 		System.out.println("Before Init");
-		
+
 		initiateListeners();
 	}
-	
+
 	public void initiateListeners(){
 		KeyListener listener = new KeyListener(){
-			
+
 			@Override
 			public void keyTyped(KeyEvent event){
 				textEntry.keyTyped(event);
 			}
-			
+
 			@Override
 			public void keyReleased(KeyEvent event){}
-			
+
 			@Override
 			public void keyPressed(KeyEvent event){
 				if(event.getKeyCode() == KeyEvent.VK_LEFT || event.getKeyCode() == KeyEvent.VK_RIGHT)
@@ -99,83 +97,80 @@ public class GameScreen extends Screen{
 					textEntry.keyPressed(event);
 			}
 		};
-		
+
 		System.out.println("Before add");
 		addKeyListener(listener);
 		requestFocusInWindow();
 		setFocusable(true);
 	}
-	
+
 	public void gameOver(int state){
-		
+
 		running = false;
-		
+
 		game.getContentPane().removeAll();
-    	game.currentScreen = new GameOverScreen(game, state, playerScore);
-    	game.getContentPane().add(game.currentScreen);
-    	game.getContentPane().validate();
-		
+		game.setCurrentScreen(new GameOverScreen(game, state, playerScore));
+		game.getContentPane().add(game.getCurrentScreen());
+		game.getContentPane().validate();
+
 		System.out.println("Game Over");
 	}
-	
+
 	public int getScore(){
 		return playerScore;
 	}
-	
-	public void paintInitialTextEntry(Graphics graphic)
-	{
+
+	public void paintInitialTextEntry(Graphics graphic){
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		
+
 		textEntry.paint(graphic2D);
 		textEntry.setVisFalse();
 	}
-	
+
 	@Override
 	public void paint(Graphics graphic){
-		
+
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		
-		
-		if(!textEntry.isVisible() && !firstRend)
-		{
+
+
+		if(!textEntry.isVisible() && !firstRend){
 			textEntry.paint(graphic2D);
 			firstRend = true;
 		}
-		
-		
+
 		road.paint(graphic2D);
-		
+
 		for(Dirt eachDirtBlock : dirtBlocks)
 			eachDirtBlock.paint(graphic2D);
-		
+
 		playerCar.paint(graphic2D);
 		policeCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
-		
+
 		notification.paint(graphic2D);
-		
+
 		graphic.setFont(new Font("Serif", Font.BOLD, 20));
 		graphic.drawString("Score: "+ String.valueOf(getScore()), 500, 40); 
-		
+
 		graphic.drawString("Timer: "+ String.valueOf(timerValue), 25, 375);
-		
+
 		//Only paint if the user has opened the texting window
 		if(textEntry.isVisible())
 			textEntry.paint(graphic2D);
-		
-		
+
+
 	}
-	
+
 	public void timerIncrease()
 	{
 		timerValue += 100;
 	}
-	
+
 	@Override
 	public void run(){
 		while(running){
@@ -186,23 +181,23 @@ public class GameScreen extends Screen{
 
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
-			
+
 			if(playerCar.checkPoliceCollision(policeCar))
 				gameOver(gameOverCollision);
-			
+
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
 				gameOver(gameOverDetection);
-				
+
 			if(timerValue == 0)
 				gameOver(gameOverTimer);
-			
+
 			for(ObstacleCar eachObstacleCar : obstacleCars){
 				eachObstacleCar.move();
 				if(playerCar.checkCollision(eachObstacleCar))
 					gameOver(gameOverCollision);
 			}
 			repaint();
-			
+
 			try{
 				Thread.sleep(DELAY);
 			} catch(InterruptedException e){

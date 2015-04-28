@@ -13,45 +13,51 @@
 // Description: A game designed to teach teenagers about the dangers of texting and driving.
 //
 
-import java.awt.EventQueue;
-
 import javax.swing.JApplet;
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Game extends JApplet implements Runnable{
 
-	Screen currentScreen;
-	
+	private Screen currentScreen;
 	private Thread gameThread;
-	
+
 	private static final long serialVersionUID = 0;
-	
+
+	@Override
 	public void init(){
-		try {
+		try{
 			SwingUtilities.invokeAndWait(new Runnable(){
-				public void run() {
+				public void run(){
 					createGUI();
 				}
 			});
 		} catch (Exception e){
-			System.err.println("createGUI didn't complete successfully");
+			System.err.println("CreateGUI was not sucessfully completed.");
 		}
 	}
-	
+
+	public Screen getCurrentScreen(){
+		return currentScreen;
+	}
+
+	public void setCurrentScreen(Screen screen){
+		currentScreen = screen;
+	}
+
 	public void createGUI(){
-		currentScreen = new StartScreen(this); //currently set to GameScreen for testing purposes, should start with StartScreen in final version
-		
+		currentScreen = new StartScreen(this);
 		getContentPane().add(currentScreen);
 	}
-	
+
+	@Override
 	public void start(){
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
-	
+
 	@Override
 	public void run(){
 		currentScreen.run();
 	}
+
 }

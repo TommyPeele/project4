@@ -11,26 +11,26 @@ import javax.swing.SwingConstants;
 public class StartScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
-	
+
 	public StartScreen(Game game){
 		super(game);
 		initGUI();
 	}
-	
+
 	public void initGUI(){
 		setBackground(Color.CYAN);
-		
-		
-		
+
+
+
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JLabel title = new JLabel("No Need for Speed !!!");
 		JButton startButton = new JButton("Start Game");
 		JButton instructionButton = new JButton("Instructions to the Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
-		
+
 		setLayout(null);
-		
+
 		background.setBounds(0,0,600,400);
 		title.setBounds(100,20,400,80);
 		instructionButton.setBounds(200,200,200,40);
@@ -42,11 +42,11 @@ public class StartScreen extends Screen{
 		instructionButton.addActionListener(new InstructionButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
-		
+
 		background.setOpaque(false);
 		title.setFont(new Font("Serif", Font.BOLD, 40));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		add(background);
 		background.add(title);
 		background.add(startButton);
@@ -54,47 +54,47 @@ public class StartScreen extends Screen{
 		background.add(infoButton);
 		background.add(exitButton);
 	}
-	
+
 	class StartButtonListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new GameScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().validate();
-        	//requestFocusInWindow();
-        	game.start();
-        	game.currentScreen.requestFocusInWindow();
-        }
-    }
-    
-    	class InstructionButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			game.getContentPane().removeAll();
+			game.setCurrentScreen(new GameScreen(game));
+			game.getContentPane().add(game.getCurrentScreen());
+			game.getContentPane().validate();
+			//requestFocusInWindow();
+			game.start();
+			game.getCurrentScreen().requestFocusInWindow();
+		}
+	}
 
-        public void actionPerformed(ActionEvent e) {
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new InstructionScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().validate();
-        	game.currentScreen.requestFocusInWindow();
-        }
-    }
-	
+	class InstructionButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			game.getContentPane().removeAll();
+			game.setCurrentScreen(new InstructionScreen(game));
+			game.getContentPane().add(game.getCurrentScreen());
+			game.getContentPane().validate();
+			game.getCurrentScreen().requestFocusInWindow();
+		}
+	}
+
 	class InfoButtonListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
-        	game.getContentPane().removeAll();
-        	game.currentScreen = new InfoScreen(game);
-        	game.getContentPane().add(game.currentScreen);
-        	game.getContentPane().validate();
-        	game.currentScreen.requestFocusInWindow();
-        }
-    }
-	
+		public void actionPerformed(ActionEvent e) {
+			game.getContentPane().removeAll();
+			game.setCurrentScreen(new InfoScreen(game));
+			game.getContentPane().add(game.getCurrentScreen());
+			game.getContentPane().validate();
+			game.getCurrentScreen().requestFocusInWindow();
+		}
+	}
+
 	class ExitButtonListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
-        	System.exit(ABORT);
-        }
-    }
+		public void actionPerformed(ActionEvent e) {
+			System.exit(ABORT);
+		}
+	}
 
 }

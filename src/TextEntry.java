@@ -17,72 +17,72 @@ import java.math.*;
 //import javax.swing.JLabel;
 
 public class TextEntry{
-	
+
 	private List<String> messages = Arrays.asList("I will be right there", "Hold on, I am on my way",
 			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
 			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?", "Nothing, hbu?");
-	
+
 	private int noOfMessages = messages.size();
-	
+
 	private Random r;
-	
+
 	private boolean visible = false;
 	private String messageToType = "Message To Type";
 	private String userMessage = "";
 	private GameScreen gameScreen;
-	
+
 	private static final String inst = "Please Type The Following Message Exactly:";
-	
+
 	//private int referenceX;
 	//private int referenceY = -600;
-	
+
 	public TextEntry(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
 	}
-	
+
 	public void chooseTextMessage(){
 		r = new Random();
 		int randomNumber = r.nextInt((noOfMessages - 0));
-		
+
 		messageToType = messages.get(randomNumber);
 	}
-	
+
 	public boolean compareUserMessage(){
 		int numberOfErrors = 0;
 		int i = 0;
-		
+
 		while(i < messageToType.length() && i < userMessage.length())
 		{
 			if(messageToType.charAt(i) != userMessage.charAt(i))
 				numberOfErrors++;
-			
+
 			i++;
 		}
-		
+
 		numberOfErrors = numberOfErrors + (messageToType.length() - i);
-		
+
 		if(numberOfErrors > 10)
 			return false;
 		else
 			return true;
 	}
-	
+
 	public void resetUserMessage(){
 		userMessage = "";
 	}
-	
+
 	public void resetMessageToType(){
 		chooseTextMessage();
 	}
-	
+
 	public boolean isVisible(){
 		return visible;
 	}
-	
+
 	public void setVisFalse(){
 		visible = false;
 	}
-	
+
 	public void keyPressed(KeyEvent event){
 		if(!visible){
 			if(event.getKeyCode() == KeyEvent.VK_DOWN)
@@ -118,7 +118,7 @@ public class TextEntry{
 			}
 		}
 	}
-	
+
 	public void keyTyped(KeyEvent event){
 		if(visible){
 			char newCharacter = event.getKeyChar();
@@ -126,17 +126,17 @@ public class TextEntry{
 				userMessage = userMessage + newCharacter;
 		}
 	}
-	
+
 	public void paint(Graphics2D graphics2D){
 		graphics2D.setColor(Color.GRAY);
 		graphics2D.fillRect(10, 0, 500, 250);
-		
+
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.drawLine(10, 170, 510, 170);
-		
+
 		graphics2D.setColor(Color.WHITE);
 		graphics2D.fillRect(25, 175, 470, 50);
-		
+
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 		graphics2D.drawString(inst, 30, 60);
