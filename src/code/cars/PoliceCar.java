@@ -9,13 +9,13 @@ import java.awt.Graphics2D;
 public class PoliceCar extends ObstacleCar{
 
 	private final static int speed = 10;
-	
-		//Constructor
+
+	//Constructor
 	public PoliceCar(int x, int y){
 		super(x, y);
 	}
 
-		//Moves car according to speed
+	//Moves car down
 	@Override
 	public void move(){
 		if(y == 500){
@@ -25,7 +25,7 @@ public class PoliceCar extends ObstacleCar{
 		else
 			y = y + speed;
 	}
-	
+
 	@Override
 	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.BLUE.darker());

@@ -16,7 +16,7 @@ public class PlayerCar extends Car{
 
 	public static int DEFAULT_X = 283; //Player car starts in center lane
 	public static int DEFAULT_Y = 310; //Player car stays at bottom of screen as cars drive towards it
-	
+
 	private int velocity = 0; //-1 is moving left, 0 is at rest, 1 is moving right
 	private int moveCount = 0;
 
@@ -29,7 +29,7 @@ public class PlayerCar extends Car{
 		super(x, y);
 	}
 
-		//Key Pressed Events to Control the Car
+	//Key pressed events to control the player car
 	public void keyPressed(KeyEvent event){
 		if(event.getKeyCode() == KeyEvent.VK_LEFT)
 			if(lane > 0 && velocity == 0)
@@ -38,8 +38,8 @@ public class PlayerCar extends Car{
 			if(lane < 2 && velocity == 0)
 				velocity = 1;
 	}
-		
-		//Moves the Car right or left depending on its velocity member
+
+	//Moves the Car right or left depending on its velocity member
 	public void move(){
 		switch(velocity){
 		case -1:
@@ -65,19 +65,19 @@ public class PlayerCar extends Car{
 		}
 	}
 
-		//Checks Collision with Obstacle Car
+	//Checks collision with ObstacleCar
 	public boolean checkCollision(ObstacleCar obstacleCar){
 		return getBounds().intersects(obstacleCar.getBounds());
 	}
 
-		//Checks Detection from Police Car
+	//Checks detection by PoliceCar
 	public boolean checkPoliceDetection(PoliceCar policeCar, TextEntry textEntry){
 		if(y == policeCar.getY() && textEntry.isVisible())
 			return true;
 		else
 			return false;
 	}
-		
+
 	@Override
 	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.GREEN);

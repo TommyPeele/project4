@@ -16,14 +16,13 @@ public abstract class Car{
 	public static final int CAR_WIDTH = 30;
 	public static final int CAR_HEIGHT = 60;
 
-		//Constructor with Parameters
+	//Constructor with parameters
 	public Car(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 
-		//Getter and Setters
-	
+	//Getters and setters
 	public int getX(){
 		return x;
 	}
@@ -40,12 +39,12 @@ public abstract class Car{
 		this.y = y;
 	}
 
-		//Returns a Rectangle Object with same size
+	//Returns a Rectangle object with same location as car
 	public Rectangle getBounds(){
 		return new Rectangle(x, y, CAR_WIDTH, CAR_HEIGHT);
 	}
 
-		//Paint Method
+	//Paint method
 	public void paint(Graphics2D graphic2D){
 		setPaintColor(graphic2D);
 		graphic2D.fillRect(x, y, CAR_WIDTH, CAR_HEIGHT);

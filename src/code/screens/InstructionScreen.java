@@ -106,17 +106,9 @@ public class InstructionScreen extends Screen{
 		PlayerCar.setOpaque(true);
 		
 
-			//Add
+		//Add
 		add(background);
 
-		//Add
-		add(instructionTitle);
-		add(PlayerCar);
-		add(PoliceCar);
-		add(ObstCar);
-		add(instruction);
-		add(startButton);
-		add(policeCarLabel);
 		background.add(policeCarLabel);
 		background.add(instructionTitle);
 		background.add(PlayerCar);

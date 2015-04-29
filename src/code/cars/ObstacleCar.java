@@ -21,7 +21,7 @@ public class ObstacleCar extends Car{
 
 	//Chooses which lane the car will spawn in
 	protected void chooseLane(){
-		//Gets Lane Number
+		//Generate lane number
 		lane = (int)(Math.random() * 3);
 		switch(lane){
 		case 0:
@@ -38,7 +38,7 @@ public class ObstacleCar extends Car{
 		}
 	}
 
-	//Moves the Car according to its speed
+	//Moves car down
 	public void move(){
 		if(y == 500){
 			y = -300;
