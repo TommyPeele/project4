@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
@@ -32,6 +33,7 @@ public class InfoScreen extends Screen{
 	}
 
 	public void initGUI(){
+<<<<<<< HEAD
 
 		setBackground(Color.CYAN);		
 			
@@ -40,6 +42,13 @@ public class InfoScreen extends Screen{
 			
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 
+=======
+		setBackground(Color.CYAN);		
+			
+			//Buttons to take User to Sites
+			
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
+>>>>>>> origin/master
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
 		
@@ -54,6 +63,11 @@ public class InfoScreen extends Screen{
 
 		setLayout(null);
 
+		webQuote.setBounds(100, 10, 400, 100);
+		webButton.setBounds(200, 120, 200, 30);
+		multiQuote.setBounds(100, 160, 400, 100);
+		multiButton.setBounds(100, 270, 400, 30);
+		startButton.setBounds(200, 320, 200, 50);
 		background.setBounds(0,0,600,400);
 		webQuote.setBounds(100,10, 400,100);
 		webButton.setBounds(200,120, 200,30);

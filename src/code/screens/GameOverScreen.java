@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -32,7 +33,6 @@ public class GameOverScreen extends Screen{
 		//Constructor that calls from super class of Screen
 	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
-
 		initGUI(state, playerScore);
 	}
 	
@@ -50,11 +50,11 @@ public class GameOverScreen extends Screen{
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
 		}
-		else if (state == gameOverDetection){
+		else if(state == gameOverDetection){
 			warning = "You were just caught texting while driving! <br>"
 					+ "You would be fined $100 in DC";
 		}
-		else {
+		else{
 			warning = "Congratulations, you ignored your text messages. You win! ";
 		}
 		
@@ -64,8 +64,13 @@ public class GameOverScreen extends Screen{
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
+<<<<<<< HEAD
 			//Button Construction
 
+=======
+
+			//Button Construction
+>>>>>>> origin/master
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
@@ -78,7 +83,10 @@ public class GameOverScreen extends Screen{
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
 		
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			//Adds Listeners
 		background.setOpaque(false);
 

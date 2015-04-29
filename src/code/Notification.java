@@ -1,4 +1,5 @@
 package code;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -33,9 +34,7 @@ public class Notification{
 			tick++;
 		}
 		else if(tick >= 10 && tick < 20)
-		{
 			tick++;
-		}
 		else if(tick >= 20)
 			tick = 0;
 	}

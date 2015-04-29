@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -39,6 +40,7 @@ public class GameScreen extends Screen{
 	private PoliceCar policeCar;
 	private TextEntry textEntry;
 	private Notification notification;
+
 	private JLabel score;
 	private ArrayList<Dirt> dirtBlocks;
 
@@ -81,6 +83,14 @@ public class GameScreen extends Screen{
 		
 			//Create Obstacle Cars with Coordinates
 		obstacleCars = new ArrayList<ObstacleCar>();
+
+		obstacleCars.add(new ObstacleCar(183, -400));
+		obstacleCars.add(new ObstacleCar(283, -700));
+		obstacleCars.add(new ObstacleCar(383, -1000));
+		obstacleCars.add(new ObstacleCar(183, -900));
+		obstacleCars.add(new ObstacleCar(283, -500));
+
+		policeCar = new PoliceCar(183, -800);
 		obstacleCars.add(new ObstacleCar(185, -400));
 		obstacleCars.add(new ObstacleCar(285, -700));
 		obstacleCars.add(new ObstacleCar(385, -1000));
@@ -144,7 +154,11 @@ public class GameScreen extends Screen{
 		return playerScore;
 	}
 
-		//Paints the textEntry Object for the first time to allow for smoother gameplay
+		public int getTimerValue() {
+		return timerValue;
+	}
+
+	//Paints the textEntry Object for the first time to allow for smoother gameplay
 	public void paintInitialTextEntry(Graphics graphic){
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;
