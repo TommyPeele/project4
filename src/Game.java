@@ -18,11 +18,13 @@ import javax.swing.SwingUtilities;
 
 public class Game extends JApplet implements Runnable{
 
+		//Our Screen and Thread
 	private Screen currentScreen;
 	private Thread gameThread;
 
 	private static final long serialVersionUID = 0;
 
+		//Initializes the Applet
 	@Override
 	public void init(){
 		try{
@@ -44,11 +46,13 @@ public class Game extends JApplet implements Runnable{
 		currentScreen = screen;
 	}
 
+		//Create GUI
 	public void createGUI(){
 		currentScreen = new StartScreen(this);
 		getContentPane().add(currentScreen);
 	}
 
+		//New Thread is created and called to start
 	@Override
 	public void start(){
 		gameThread = new Thread(this);

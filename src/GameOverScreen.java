@@ -7,26 +7,34 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+
+/*
+ * This is our Game Over Screen, It includes a fact, score, and buttons to transition between screens (extends Screen)
+ */
 public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 
+		//Detects whether or not game was ended due to Collision or Detection
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
 	private static final int gameOverTimer = 2;
 	private String warning;
 
+		//Constructor that calls from super class of Screen
 	public GameOverScreen(Game game, int state, int playerScore){
 		super(game);
 
 		initGUI(state, playerScore);
 	}
-
+	
+		
+		//Initializes the GUI of Game Over Screen, takes in state and score as parameter
 	public void initGUI(int state, int playerScore){
-
+			//Colors background Cyan
 		setBackground(Color.CYAN);
 
-
+			//Adjusts the warning string depending on the state of how the game ended
 		if (state == gameOverCollision) {
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
@@ -38,12 +46,15 @@ public class GameOverScreen extends Screen{
 		else {
 			warning = "Congratulations, you ignored your text messages. You win! ";
 		}
+		
+			//Takes the whole warning and score and places into JLabel
 		String msg = "<html>" + warning + "<br>Your 'score' is: " + String.valueOf(playerScore) + "</html>";
 		JLabel message = new JLabel(msg);
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
 
+			//Button Construction
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
@@ -54,7 +65,8 @@ public class GameOverScreen extends Screen{
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
-
+		
+			//Adds Listeners
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
@@ -65,17 +77,26 @@ public class GameOverScreen extends Screen{
 		add(exitButton);
 	}
 
+	
+		/*
+		 * Nested Classes for Button Listeners that wait for events to occur
+		 */
+	
+		//Start Game
 	class StartButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
+				//set Screen to New Game Screen
 			game.setCurrentScreen(new GameScreen(game));
 			game.getContentPane().add(game.getCurrentScreen());
 			game.getContentPane().validate();
 			game.start();
+				//Requests focus for Listeners
 			game.getCurrentScreen().requestFocusInWindow();
 		}
 	}
 
+		//Information Screen
 	class InfoButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
@@ -84,7 +105,8 @@ public class GameOverScreen extends Screen{
 			game.getContentPane().validate();
 		}
 	}
-
+	
+		//Exit Applet Button
 	class ExitButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			System.exit(ABORT);

@@ -1,9 +1,15 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+/*
+ * This is our class for our Notification Icon, it blinks when the User has a message
+ */
+	
 public class Notification{
 
+		//The screen to which the Icon belongs to
 	private GameScreen gameScreen;
+		//Is there an available Message?
 	private boolean availableMessage;
 
 	private int tick = 0;
@@ -12,8 +18,8 @@ public class Notification{
 		this.gameScreen = gameScreen;
 	}
 
+		//This method methodically paints the Icon depending on how long it has been displace for
 	public void paint(Graphics2D graphic2D){
-		//System.out.println(tick);
 
 		if(tick < 10 && tick < 20)
 		{
@@ -30,7 +36,5 @@ public class Notification{
 		else if(tick >= 20)
 			tick = 0;
 	}
-
-	//public void blink(){}
 
 }
