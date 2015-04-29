@@ -17,12 +17,13 @@ public class Notification{
 	private boolean availableMessage;
 
 	private int tick = 0;
-
+	
+	// Constructor
 	public Notification(GameScreen gameScreen){
 		this.gameScreen = gameScreen;
 	}
 
-	//This method methodically paints the Icon depending on how long it has been displace for
+	//This method methodically paints the Icon depending on how long it has been displaced for
 	public void paint(Graphics2D graphic2D){
 
 		if(tick < 10 && tick < 20)
