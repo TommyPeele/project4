@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JLabel;
 
@@ -13,6 +14,8 @@ public class GameScreen extends Screen{
 
 	private int playerScore = 0;
 	private int timerValue = 500;
+	private int notificationDelay;
+	Random random = new Random();
 	private Road road;
 	private PlayerCar playerCar;
 	private ArrayList<ObstacleCar> obstacleCars;
@@ -34,37 +37,37 @@ public class GameScreen extends Screen{
 	private boolean running = true;
 
 	private boolean firstRend = false;
+	private boolean printNotification = true;
 
 	public GameScreen(Game game){
 		super(game);
 		setBackground(Color.GREEN.darker());
 		setFocusable(true);
 
-		road = new Road();
+		road = new Road(this);
 
 		dirtBlocks = new ArrayList<Dirt>();
-		dirtBlocks.add(new Dirt(50, 300));
-		dirtBlocks.add(new Dirt(20, 240));
-		dirtBlocks.add(new Dirt(35, 110));
-		dirtBlocks.add(new Dirt(90, 50));
-		dirtBlocks.add(new Dirt(75, 0));
+		dirtBlocks.add(new Dirt(this, 50, 300));
+		dirtBlocks.add(new Dirt(this, 20, 240));
+		dirtBlocks.add(new Dirt(this, 35, 110));
+		dirtBlocks.add(new Dirt(this, 90, 50));
+		dirtBlocks.add(new Dirt(this, 75, 0));
 
-		dirtBlocks.add(new Dirt(500, 380));
-		dirtBlocks.add(new Dirt(530, 240));
-		dirtBlocks.add(new Dirt(480, 110));
-		dirtBlocks.add(new Dirt(570, 10));
+		dirtBlocks.add(new Dirt(this, 500, 380));
+		dirtBlocks.add(new Dirt(this, 530, 240));
+		dirtBlocks.add(new Dirt(this, 480, 110));
+		dirtBlocks.add(new Dirt(this, 570, 10));
 
-		playerCar = new PlayerCar();
+		playerCar = new PlayerCar(this);
 		obstacleCars = new ArrayList<ObstacleCar>();
 
-		obstacleCars.add(new ObstacleCar(185, -400));
-		obstacleCars.add(new ObstacleCar(285, -700));
-		obstacleCars.add(new ObstacleCar(385, -1000));
-		obstacleCars.add(new ObstacleCar(185, -900));
-		obstacleCars.add(new ObstacleCar(285, -500));
+		obstacleCars.add(new ObstacleCar(this, 185, -400));
+		obstacleCars.add(new ObstacleCar(this, 285, -700));
+		obstacleCars.add(new ObstacleCar(this, 385, -1000));
+		obstacleCars.add(new ObstacleCar(this, 185, -900));
+		obstacleCars.add(new ObstacleCar(this, 285, -500));
 
-		policeCar = new PoliceCar(180, -800);
-		obstacleCars.add(policeCar);
+		policeCar = new PoliceCar(this, 180, -800);
 
 		textEntry = new TextEntry(this);
 		textEntry.chooseTextMessage(); //Choose the first message
@@ -89,7 +92,7 @@ public class GameScreen extends Screen{
 			public void keyPressed(KeyEvent event){
 				if(event.getKeyCode() == KeyEvent.VK_LEFT || event.getKeyCode() == KeyEvent.VK_RIGHT)
 					playerCar.keyPressed(event);
-				else
+				else if (printNotification)
 					textEntry.keyPressed(event);
 			}
 		};
@@ -140,11 +143,17 @@ public class GameScreen extends Screen{
 			eachDirtBlock.paint(graphic2D);
 
 		playerCar.paint(graphic2D);
+		policeCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
-
-		graphic2D.setColor(Color.RED);
-		notification.paint(graphic2D);
+		
+		if (printNotification)
+			notification.paint(graphic2D);
+		else if (notificationDelay == 0)
+			printNotification = true;
+		else
+			notificationDelay--;
+			
 
 		graphic.setFont(new Font("Serif", Font.BOLD, 20));
 		graphic.drawString("Score: "+ String.valueOf(getScore()), 500, 40); 
@@ -165,16 +174,14 @@ public class GameScreen extends Screen{
 		while(running){
 			playerScore++;
 			timerValue--;
-			
 			playerCar.move();
-			for(ObstacleCar eachObstacleCar : obstacleCars){
-				eachObstacleCar.move();
-				if(playerCar.checkCollision(eachObstacleCar))
-					gameOver(gameOverCollision);
-			}
+			policeCar.move();
 
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
+
+			if(playerCar.checkPoliceCollision(policeCar))
+				gameOver(gameOverCollision);
 
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
 				gameOver(gameOverDetection);
@@ -182,6 +189,11 @@ public class GameScreen extends Screen{
 			if(timerValue == 0)
 				gameOver(gameOverTimer);
 
+			for(ObstacleCar eachObstacleCar : obstacleCars){
+				eachObstacleCar.move();
+				if(playerCar.checkCollision(eachObstacleCar))
+					gameOver(gameOverCollision);
+			}
 			repaint();
 
 			try{
@@ -192,4 +204,10 @@ public class GameScreen extends Screen{
 		}
 	}
 
+	public void newMessageDelay() {
+		printNotification = false;
+		notificationDelay = (random.nextInt(40) + 20);
+	}
+
 }
+
