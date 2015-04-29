@@ -27,19 +27,32 @@ public class InstructionScreen extends Screen{
 	}
 
 	public void initGUI(){
+<<<<<<< HEAD
 		setBackground(Color.CYAN);
 			//Labels the Contain Text to Display to Users
+=======
+		
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
+>>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		JLabel instruction = new JLabel();
 		JLabel instructionTitle = new JLabel("INSTRUCTIONS");
 		JLabel policeCarLabel = new JLabel("Police Car");
 		JButton startButton = new JButton("Return to Main Screen");
 		
+<<<<<<< HEAD
 			//Set Instruction Title Attributes
+=======
+		background.setBounds(0,0,600,400);
+>>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		instructionTitle.setFont(new Font("Serif", Font.ITALIC, 20));
 		instructionTitle.setBounds(200,5,200,100);
 		instructionTitle.setLocation(240,-20);
 		
+<<<<<<< HEAD
 			//Set Police Car Label
+=======
+		background.setOpaque(false);
+>>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		policeCarLabel.setLocation(450,250);
 		policeCarLabel.setOpaque(false);
 
@@ -85,6 +98,7 @@ public class InstructionScreen extends Screen{
 		PlayerCar.setBounds(450,53,30,60);
 		PlayerCar.setOpaque(true);
 		
+<<<<<<< HEAD
 			//Add
 		add(instructionTitle);
 		add(PlayerCar);
@@ -93,6 +107,16 @@ public class InstructionScreen extends Screen{
 		add(instruction);
 		add(startButton);
 		add(policeCarLabel);
+=======
+		background.add(policeCarLabel);
+		background.add(instructionTitle);
+		background.add(PlayerCar);
+		background.add(PoliceCar);
+		background.add(ObstCar);
+		background.add(instruction);
+		background.add(startButton);
+		background.add(policeCarLabel);
+>>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 	}
 
 		//Implements Listener for Start Button
