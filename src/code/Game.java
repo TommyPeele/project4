@@ -17,6 +17,9 @@ package code;
 import javax.swing.JApplet;
 import javax.swing.SwingUtilities;
 
+import code.screens.Screen;
+import code.screens.StartScreen;
+
 public class Game extends JApplet implements Runnable{
 
 	private Screen currentScreen;

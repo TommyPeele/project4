@@ -2,6 +2,8 @@ package code;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import code.screens.GameScreen;
+
 public class Notification{
 
 	private GameScreen gameScreen;

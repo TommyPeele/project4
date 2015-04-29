@@ -1,15 +1,16 @@
 package tests;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import code.Game;
-import code.GameScreen;
-import code.ObstacleCar;
-import code.PlayerCar;
-import code.PoliceCar;
 import code.TextEntry;
+import code.cars.ObstacleCar;
+import code.cars.PlayerCar;
+import code.cars.PoliceCar;
+import code.screens.GameScreen;
 
 public class PlayerCarTest{
 

@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.math.*;
 
+import code.screens.GameScreen;
+
 //import javax.swing.ImageIcon;
 //import javax.swing.JFrame;
 //import javax.swing.JLabel;
