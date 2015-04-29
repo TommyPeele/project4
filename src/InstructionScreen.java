@@ -32,9 +32,9 @@ public class InstructionScreen extends Screen{
 
 		instruction.setText("<html>Use the left and right arrows to move your car between lanes.<br><br>"
 				+ "A red circle in the upper left corner will flash when you have a new text message!<br>"
-				+ "Use the down arrow to pull down the text screen<br>" 
-				+ "Use the up arrow to pull up the text screen<br>"
-				+ "Type the text and press Enter to send the text<br><br><br>"
+				+ "Use the down arrow to pull down the text screen.<br>" 
+				+ "Use the up arrow to pull up the text screen.<br>"
+				+ "Type the text and press Enter to send the text.<br><br><br>"
 				+ "Avoid texting with a police car on the road!<br><br>"
 				+ "Avoid accidents with other cars!</html>");
 
@@ -56,12 +56,12 @@ public class InstructionScreen extends Screen{
 		
 		JLabel ObstCar = new JLabel();
 		ObstCar.setBackground(Color.RED);
-		ObstCar.setBounds(450,200,30,60);
+		ObstCar.setBounds(425,200,30,60);
 		ObstCar.setOpaque(true);
 		
 		JLabel PoliceCar = new JLabel();
 		PoliceCar.setBackground(Color.BLUE);
-		PoliceCar.setBounds(400,200,30,60);
+		PoliceCar.setBounds(475,200,30,60);
 		PoliceCar.setOpaque(true);
 		
 		JLabel PlayerCar = new JLabel();
