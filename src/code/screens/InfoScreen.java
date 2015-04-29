@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -24,8 +25,8 @@ public class InfoScreen extends Screen{
 	}
 
 	public void initGUI(){
-		setBackground(Color.CYAN);		
-
+			
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
 
@@ -42,16 +43,24 @@ public class InfoScreen extends Screen{
 		multiQuote.setBounds(100, 160, 400, 100);
 		multiButton.setBounds(100, 270, 400, 30);
 		startButton.setBounds(200, 320, 200, 50);
+		background.setBounds(0,0,600,400);
+		webQuote.setBounds(100,10, 400,100);
+		webButton.setBounds(200,120, 200,30);
+		multiQuote.setBounds(100,160, 400,100);
+		multiButton.setBounds(100,270,400,30);
+		startButton.setBounds(200,320,200,50);
+		
+		background.setOpaque(false);
 
 		webButton.addActionListener(new WebButtonListener());
 		multiButton.addActionListener(new MultiButtonListener());
 		startButton.addActionListener(new StartButtonListener());
 
-		add(webQuote);
-		add(webButton);
-		add(multiQuote);
-		add(multiButton);
-		add(startButton);
+		background.add(webQuote);
+		background.add(webButton);
+		background.add(multiQuote);
+		background.add(multiButton);
+		background.add(startButton);
 	}
 
 	class WebButtonListener implements ActionListener{
