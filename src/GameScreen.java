@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JLabel;
 
@@ -13,6 +14,8 @@ public class GameScreen extends Screen{
 
 	private int playerScore = 0;
 	private int timerValue = 500;
+	private int notificationDelay;
+	Random random = new Random();
 	private Road road;
 	private PlayerCar playerCar;
 	private ArrayList<ObstacleCar> obstacleCars;
@@ -34,6 +37,7 @@ public class GameScreen extends Screen{
 	private boolean running = true;
 
 	private boolean firstRend = false;
+	private boolean printNotification = true;
 
 	public GameScreen(Game game){
 		super(game);
@@ -64,7 +68,6 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(285, -500));
 
 		policeCar = new PoliceCar(180, -800);
-		obstacleCars.add(policeCar);
 
 		textEntry = new TextEntry(this);
 		textEntry.chooseTextMessage(); //Choose the first message
@@ -89,7 +92,7 @@ public class GameScreen extends Screen{
 			public void keyPressed(KeyEvent event){
 				if(event.getKeyCode() == KeyEvent.VK_LEFT || event.getKeyCode() == KeyEvent.VK_RIGHT)
 					playerCar.keyPressed(event);
-				else
+				else if (printNotification)
 					textEntry.keyPressed(event);
 			}
 		};
@@ -140,11 +143,17 @@ public class GameScreen extends Screen{
 			eachDirtBlock.paint(graphic2D);
 
 		playerCar.paint(graphic2D);
+		policeCar.paint(graphic2D);
 		for(ObstacleCar eachObstacleCar : obstacleCars)
 			eachObstacleCar.paint(graphic2D);
-
-		graphic2D.setColor(Color.RED);
-		notification.paint(graphic2D);
+		
+		if (printNotification)
+			notification.paint(graphic2D);
+		else if (notificationDelay == 0)
+			printNotification = true;
+		else
+			notificationDelay--;
+			
 
 		graphic.setFont(new Font("Serif", Font.BOLD, 20));
 		graphic.drawString("Score: "+ String.valueOf(getScore()), 500, 40); 
@@ -165,16 +174,14 @@ public class GameScreen extends Screen{
 		while(running){
 			playerScore++;
 			timerValue--;
-			
 			playerCar.move();
-			for(ObstacleCar eachObstacleCar : obstacleCars){
-				eachObstacleCar.move();
-				if(playerCar.checkCollision(eachObstacleCar))
-					gameOver(gameOverCollision);
-			}
+			policeCar.move();
 
 			for(Dirt eachDirtBlock : dirtBlocks)
 				eachDirtBlock.move();
+
+			if(playerCar.checkCollision(policeCar))
+				gameOver(gameOverCollision);
 
 			if(playerCar.checkPoliceDetection(policeCar, textEntry))
 				gameOver(gameOverDetection);
@@ -182,6 +189,11 @@ public class GameScreen extends Screen{
 			if(timerValue == 0)
 				gameOver(gameOverTimer);
 
+			for(ObstacleCar eachObstacleCar : obstacleCars){
+				eachObstacleCar.move();
+				if(playerCar.checkCollision(eachObstacleCar))
+					gameOver(gameOverCollision);
+			}
 			repaint();
 
 			try{
@@ -192,4 +204,10 @@ public class GameScreen extends Screen{
 		}
 	}
 
+	public void newMessageDelay() {
+		printNotification = false;
+		notificationDelay = (random.nextInt(40) + 20);
+	}
+
 }
+

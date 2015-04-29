@@ -20,7 +20,9 @@ public class TextEntry{
 
 	private List<String> messages = Arrays.asList("I will be right there", "Hold on, I am on my way",
 			"I can not talk right now, I am driving", "Yes, I can go tonight", "No, sorry, I am busy",
-			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?", "Nothing, hbu?");
+			"Yeah, I already bought everything", "Hey d00d, what are you up to rn?", "Nothing, hbu?", "Hi what's up?",
+			"Hello", "No, not now", "Just some readings", "Good, thanks", "Really tired actually", "No, not enough time today",
+			"Hold on, I'm going to overtake this car");
 
 	private int noOfMessages = messages.size();
 
@@ -108,6 +110,7 @@ public class TextEntry{
 						resetMessageToType();
 						visible = false;
 						gameScreen.timerIncrease();
+						gameScreen.newMessageDelay();
 						//update Score here
 					}
 					else
@@ -139,7 +142,7 @@ public class TextEntry{
 
 		graphics2D.setColor(Color.BLACK);
 		graphics2D.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		graphics2D.drawString(inst, 30, 60);
+		graphics2D.drawString(inst, 30, 40);
 		graphics2D.drawString(messageToType, 30, 140);
 		graphics2D.drawString(userMessage, 30, 220);
 	}
