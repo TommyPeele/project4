@@ -10,12 +10,6 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JLabel;
-/*
- * This is our Game Screen class, where the majority of our code resides. The Game is fairly simply: avoid cars while
- * completing the prompted text messages in a timely manner.
- */
-
 import code.Dirt;
 import code.Game;
 import code.Notification;
@@ -24,6 +18,11 @@ import code.TextEntry;
 import code.cars.ObstacleCar;
 import code.cars.PlayerCar;
 import code.cars.PoliceCar;
+
+/*
+ * This is our Game Screen class, where the majority of our code resides. The Game is fairly simply: avoid cars while
+ * completing the prompted text messages in a timely manner.
+ */
 
 public class GameScreen extends Screen{
 
@@ -41,7 +40,6 @@ public class GameScreen extends Screen{
 	private TextEntry textEntry;
 	private Notification notification;
 
-	private JLabel score;
 	private ArrayList<Dirt> dirtBlocks;
 
 	//Relevant Constants

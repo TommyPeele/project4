@@ -10,12 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-
-
 /*
  * This is our Game Over Screen, It includes a fact, score, and buttons to transition between screens (extends Screen)
  */
-
 
 import code.Game;
 
@@ -27,7 +24,6 @@ public class GameOverScreen extends Screen{
 	//Detects whether or not game was ended due to Collision or Detection
 	private static final int gameOverCollision = 0;
 	private static final int gameOverDetection = 1;
-	private static final int gameOverTimer = 2;
 	private String warning;
 
 	//Constructor that calls from super class of Screen

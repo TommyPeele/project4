@@ -1,7 +1,6 @@
 package code.screens;
 
 import java.awt.Color;
-import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,14 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import code.Game;
 
 /*
  * This Information Screen contains all useful links to take the user to websites containing info
  */
-
-
-import code.Game;
-
 
 public class InfoScreen extends Screen{
 
@@ -126,19 +122,6 @@ public class InfoScreen extends Screen{
 			game.getContentPane().add(game.getCurrentScreen());
 			game.getContentPane().validate();
 		}
-	}
-
-	//Opens LINK
-	private static void open(URI uri){
-		if(Desktop.isDesktopSupported()){
-			try{
-				Desktop.getDesktop().browse(uri);
-			} catch(IOException e){
-				System.out.println("Link Not Found");
-			}
-		}
-		else
-			System.out.println("Not Supported Desktop");
 	}
 
 }
