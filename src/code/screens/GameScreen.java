@@ -83,22 +83,15 @@ public class GameScreen extends Screen{
 
 		//Create Obstacle Cars with Coordinates
 		obstacleCars = new ArrayList<ObstacleCar>();
-
-		obstacleCars.add(new ObstacleCar(183, -400));
-		obstacleCars.add(new ObstacleCar(283, -700));
-		obstacleCars.add(new ObstacleCar(383, -1000));
-		obstacleCars.add(new ObstacleCar(183, -900));
-		obstacleCars.add(new ObstacleCar(283, -500));
-
-		policeCar = new PoliceCar(183, -800);
-		obstacleCars.add(new ObstacleCar(185, -400));
-		obstacleCars.add(new ObstacleCar(285, -700));
-		obstacleCars.add(new ObstacleCar(385, -1000));
-		obstacleCars.add(new ObstacleCar(185, -900));
-		obstacleCars.add(new ObstacleCar(285, -500));
+		
+		obstacleCars.add(new ObstacleCar(0, -400));
+		obstacleCars.add(new ObstacleCar(0, -700));
+		obstacleCars.add(new ObstacleCar(0, -1000));
+		obstacleCars.add(new ObstacleCar(0, -900));
+		obstacleCars.add(new ObstacleCar(0, -500));
 
 		//Create Police Car with Coords
-		policeCar = new PoliceCar(180, -800);
+		policeCar = new PoliceCar(0, -800);
 
 		//Create Text Entry
 		textEntry = new TextEntry(this);

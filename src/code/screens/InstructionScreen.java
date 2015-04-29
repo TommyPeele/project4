@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
  */
 
 
+
 import code.Game;
 
 
@@ -37,6 +38,19 @@ public class InstructionScreen extends Screen{
 		JLabel instructionTitle = new JLabel("INSTRUCTIONS");
 		JLabel policeCarLabel = new JLabel("Police Car");
 		JButton startButton = new JButton("Return to Main Screen");
+		
+
+			//Set Instruction Title Attributes
+
+		background.setBounds(0,0,600,400);
+
+		instructionTitle.setFont(new Font("Serif", Font.ITALIC, 20));
+		instructionTitle.setBounds(200,5,200,100);
+		instructionTitle.setLocation(240,-20);
+			//Set Police Car Label
+
+		background.setOpaque(false);
+
 
 		//Set Instruction Title Attributes
 		background.setBounds(0,0,600,400);
@@ -90,6 +104,10 @@ public class InstructionScreen extends Screen{
 		PlayerCar.setBackground(Color.GREEN);
 		PlayerCar.setBounds(450,53,30,60);
 		PlayerCar.setOpaque(true);
+		
+
+			//Add
+		add(background);
 
 		//Add
 		add(instructionTitle);

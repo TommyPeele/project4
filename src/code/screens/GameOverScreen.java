@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
  * This is our Game Over Screen, It includes a fact, score, and buttons to transition between screens (extends Screen)
  */
 
+
 import code.Game;
 
 
@@ -63,8 +64,8 @@ public class GameOverScreen extends Screen{
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
-
-		//Button Construction
+			//Button Construction
+		
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
@@ -78,12 +79,14 @@ public class GameOverScreen extends Screen{
 		exitButton.setBounds(200,340,200,50);
 
 		//Adds Listeners
+
 		background.setOpaque(false);
 
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 
+		add(background);
 		background.add(message);
 		background.add(startButton);
 		background.add(infoButton);

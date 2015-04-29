@@ -9,9 +9,9 @@ import java.awt.Graphics2D;
 
 public class ObstacleCar extends Car{
 
-	private final static int laneOne = 185;
-	private final static int laneTwo = 285;
-	private final static int laneThree = 385;
+	private final static int laneOne = 183;
+	private final static int laneTwo = 283;
+	private final static int laneThree = 383;
 	private final static int speed = 10;
 
 	public ObstacleCar(int x, int y){
