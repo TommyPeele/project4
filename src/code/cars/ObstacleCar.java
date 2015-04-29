@@ -25,15 +25,6 @@ public class ObstacleCar extends Car{
 		lane = (int)(Math.random() * 3);
 		switch(lane){
 		case 0:
-<<<<<<< HEAD
-			x = 183;
-			break;
-		case 1:
-			x = 283;
-			break;
-		case 2:
-			x = 383;
-=======
 			x = laneOne;
 			break;
 		case 1:
@@ -41,7 +32,6 @@ public class ObstacleCar extends Car{
 			break;
 		case 2:
 			x = laneThree;
->>>>>>> 83443b6a102eac8458a8fc735e7050d66a2f69db
 			break;
 		default:
 			break;

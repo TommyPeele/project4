@@ -10,15 +10,12 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-<<<<<<< HEAD
-=======
 import javax.swing.JLabel;
 /*
  * This is our Game Screen class, where the majority of our code resides. The Game is fairly simply: avoid cars while
  * completing the prompted text messages in a timely manner.
  */
 
->>>>>>> 83443b6a102eac8458a8fc735e7050d66a2f69db
 import code.Dirt;
 import code.Game;
 import code.Notification;
@@ -43,13 +40,8 @@ public class GameScreen extends Screen{
 	private PoliceCar policeCar;
 	private TextEntry textEntry;
 	private Notification notification;
-<<<<<<< HEAD
 
-	private PoliceCar policeCar;
-
-=======
 	private JLabel score;
->>>>>>> 83443b6a102eac8458a8fc735e7050d66a2f69db
 	private ArrayList<Dirt> dirtBlocks;
 
 		//Relevant Constants
@@ -91,7 +83,6 @@ public class GameScreen extends Screen{
 		
 			//Create Obstacle Cars with Coordinates
 		obstacleCars = new ArrayList<ObstacleCar>();
-<<<<<<< HEAD
 
 		obstacleCars.add(new ObstacleCar(183, -400));
 		obstacleCars.add(new ObstacleCar(283, -700));
@@ -100,7 +91,6 @@ public class GameScreen extends Screen{
 		obstacleCars.add(new ObstacleCar(283, -500));
 
 		policeCar = new PoliceCar(183, -800);
-=======
 		obstacleCars.add(new ObstacleCar(185, -400));
 		obstacleCars.add(new ObstacleCar(285, -700));
 		obstacleCars.add(new ObstacleCar(385, -1000));
@@ -109,7 +99,6 @@ public class GameScreen extends Screen{
 
 			//Create Police Car with Coords
 		policeCar = new PoliceCar(180, -800);
->>>>>>> 83443b6a102eac8458a8fc735e7050d66a2f69db
 
 			//Create Text Entry
 		textEntry = new TextEntry(this);
@@ -165,7 +154,11 @@ public class GameScreen extends Screen{
 		return playerScore;
 	}
 
-		//Paints the textEntry Object for the first time to allow for smoother gameplay
+		public int getTimerValue() {
+		return timerValue;
+	}
+
+	//Paints the textEntry Object for the first time to allow for smoother gameplay
 	public void paintInitialTextEntry(Graphics graphic){
 		super.paint(graphic);
 		Graphics2D graphic2D = (Graphics2D) graphic;

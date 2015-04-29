@@ -32,14 +32,11 @@ public class InfoScreen extends Screen{
 	}
 
 	public void initGUI(){
-<<<<<<< HEAD
 		setBackground(Color.CYAN);		
 			
 			//Buttons to take User to Sites
-=======
 			
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
->>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
 		
