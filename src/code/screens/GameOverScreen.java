@@ -8,15 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-<<<<<<< HEAD:src/GameOverScreen.java
+
 
 /*
  * This is our Game Over Screen, It includes a fact, score, and buttons to transition between screens (extends Screen)
  */
-=======
+
 import code.Game;
 
->>>>>>> origin/master:src/code/screens/GameOverScreen.java
+
 public class GameOverScreen extends Screen{
 
 	private static final long serialVersionUID = 0;

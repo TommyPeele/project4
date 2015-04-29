@@ -2,15 +2,12 @@ package code;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-<<<<<<< HEAD:src/Notification.java
 /*
  * This is our class for our Notification Icon, it blinks when the User has a message
  */
 	
-=======
 import code.screens.GameScreen;
 
->>>>>>> origin/master:src/code/Notification.java
 public class Notification{
 
 		//The screen to which the Icon belongs to

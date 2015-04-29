@@ -11,13 +11,13 @@ import java.net.URISyntaxException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-<<<<<<< HEAD:src/InfoScreen.java
+
 /*
  * This Information Screen contains all useful links to take the user to websites containing info
  */
-=======
+
 import code.Game;
->>>>>>> origin/master:src/code/screens/InfoScreen.java
+
 
 public class InfoScreen extends Screen{
 

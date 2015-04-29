@@ -9,18 +9,13 @@ import java.util.Arrays;
 import java.util.Random;
 import java.math.*;
 
-<<<<<<< HEAD:src/TextEntry.java
 /*
  * This is our Text Entry Window Object that displays random text messages for users to recreate
  */
 
-=======
+
 import code.screens.GameScreen;
 
-//import javax.swing.ImageIcon;
-//import javax.swing.JFrame;
-//import javax.swing.JLabel;
->>>>>>> origin/master:src/code/TextEntry.java
 
 public class TextEntry{
 

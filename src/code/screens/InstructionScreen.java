@@ -7,15 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-<<<<<<< HEAD:src/InstructionScreen.java
+
 /*
  * This is our Instructions Screen that informs the user the basics about our Applet
  */
-=======
+
 
 import code.Game;
 
->>>>>>> origin/master:src/code/screens/InstructionScreen.java
+
 public class InstructionScreen extends Screen{
 
 	private static final long serialVersionUID = 0;

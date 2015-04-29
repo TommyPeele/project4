@@ -3,13 +3,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-<<<<<<< HEAD:src/PlayerCar.java
+
 /*
  * This is our Player Car which the user controls, it stems from Car
  */
-=======
+
 import code.TextEntry;
->>>>>>> origin/master:src/code/cars/PlayerCar.java
+
 
 public class PlayerCar extends Car{
 

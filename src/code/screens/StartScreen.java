@@ -9,13 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-<<<<<<< HEAD:src/StartScreen.java
 /*
  * This is our StartScreen that prompts itself to the User at launch
  */
-=======
+
 import code.Game;
->>>>>>> origin/master:src/code/screens/StartScreen.java
+
 
 public class StartScreen extends Screen{
 
