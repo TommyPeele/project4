@@ -12,7 +12,7 @@ public class CorrectEntryIncrementTest {
 	@Test
 	public void testTimer() {
 		testScreen.timerIncrease();
-		assertEquals(testScreen.getTimerValue(), 100);
+		assertEquals(testScreen.getTimerValue(), 600);
 	}
 
 }
