@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -13,6 +14,7 @@ import javax.swing.SwingConstants;
 /*
  * This is our Game Over Screen, It includes a fact, score, and buttons to transition between screens (extends Screen)
  */
+
 
 import code.Game;
 
@@ -37,16 +39,13 @@ public class GameOverScreen extends Screen{
 		
 		//Initializes the GUI of Game Over Screen, takes in state and score as parameter
 	public void initGUI(int state, int playerScore){
-<<<<<<< HEAD
 			//Colors background Cyan
 		setBackground(Color.CYAN);
 
 			//Adjusts the warning string depending on the state of how the game ended
-=======
 
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		
->>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		if (state == gameOverCollision) {
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
@@ -65,11 +64,8 @@ public class GameOverScreen extends Screen{
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
-<<<<<<< HEAD
-
 			//Button Construction
-=======
->>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
+
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
@@ -82,16 +78,15 @@ public class GameOverScreen extends Screen{
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
 		
-<<<<<<< HEAD
+
 			//Adds Listeners
-=======
 		background.setOpaque(false);
 
->>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 
+		add(background);
 		background.add(message);
 		background.add(startButton);
 		background.add(infoButton);

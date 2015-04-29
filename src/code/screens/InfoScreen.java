@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 /*
  * This Information Screen contains all useful links to take the user to websites containing info
  */
+
 
 import code.Game;
 
@@ -30,14 +32,14 @@ public class InfoScreen extends Screen{
 	}
 
 	public void initGUI(){
-<<<<<<< HEAD
+
 		setBackground(Color.CYAN);		
 			
 			//Buttons to take User to Sites
-=======
+
 			
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
->>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
+
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
 		
@@ -65,6 +67,7 @@ public class InfoScreen extends Screen{
 		multiButton.addActionListener(new MultiButtonListener());
 		startButton.addActionListener(new StartButtonListener());
 
+		add(background);
 		background.add(webQuote);
 		background.add(webButton);
 		background.add(multiQuote);
