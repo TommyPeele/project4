@@ -20,16 +20,19 @@ public class InstructionScreen extends Screen{
 	}
 
 	public void initGUI(){
-		setBackground(Color.CYAN);
+		
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JLabel instruction = new JLabel();
 		JLabel instructionTitle = new JLabel("INSTRUCTIONS");
 		JLabel policeCarLabel = new JLabel("Police Car");
 		JButton startButton = new JButton("Return to Main Screen");
 		
+		background.setBounds(0,0,600,400);
 		instructionTitle.setFont(new Font("Serif", Font.ITALIC, 20));
 		instructionTitle.setBounds(200,5,200,100);
 		instructionTitle.setLocation(240,-20);
 		
+		background.setOpaque(false);
 		policeCarLabel.setLocation(450,250);
 		policeCarLabel.setOpaque(false);
 
@@ -72,14 +75,14 @@ public class InstructionScreen extends Screen{
 		PlayerCar.setBounds(450,53,30,60);
 		PlayerCar.setOpaque(true);
 		
-		add(policeCarLabel);
-		add(instructionTitle);
-		add(PlayerCar);
-		add(PoliceCar);
-		add(ObstCar);
-		add(instruction);
-		add(startButton);
-		add(policeCarLabel);
+		background.add(policeCarLabel);
+		background.add(instructionTitle);
+		background.add(PlayerCar);
+		background.add(PoliceCar);
+		background.add(ObstCar);
+		background.add(instruction);
+		background.add(startButton);
+		background.add(policeCarLabel);
 	}
 
 	class StartButtonListener implements ActionListener{
