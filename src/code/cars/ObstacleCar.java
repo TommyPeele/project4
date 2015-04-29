@@ -13,15 +13,15 @@ public class ObstacleCar extends Car{
 	private final static int laneTwo = 285;
 	private final static int laneThree = 385;
 	private final static int speed = 10;
-	
+
 	public ObstacleCar(int x, int y){
 		super(x, y);
 		chooseLane();
 	}
 
-		//Chooses which lane the car will spawn in
+	//Chooses which lane the car will spawn in
 	protected void chooseLane(){
-			//Gets Lane Number
+		//Gets Lane Number
 		lane = (int)(Math.random() * 3);
 		switch(lane){
 		case 0:
@@ -38,7 +38,7 @@ public class ObstacleCar extends Car{
 		}
 	}
 
-		//Moves the Car according to its speed
+	//Moves the Car according to its speed
 	public void move(){
 		if(y == 500){
 			y = -300;
@@ -47,7 +47,7 @@ public class ObstacleCar extends Car{
 		else
 			y = y + speed;
 	}
-	
+
 	@Override
 	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.RED);
