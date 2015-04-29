@@ -27,9 +27,8 @@ public class GameOverScreen extends Screen{
 
 	public void initGUI(int state, int playerScore){
 
-		setBackground(Color.CYAN);
-
-
+		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
+		
 		if (state == gameOverCollision) {
 			warning = "You just collided with another vehicle! <br>"
 					+ "Texting while driving makes you 23x more likely to crash";
@@ -46,26 +45,28 @@ public class GameOverScreen extends Screen{
 		message.setHorizontalAlignment(SwingConstants.CENTER);
 		message.setFont(new Font("Serif", Font.BOLD, 20));
 
-
 		JButton startButton = new JButton("Start Game");
 		JButton infoButton = new JButton("Learn More");
 		JButton exitButton = new JButton("Exit");
 
 		setLayout(null);
-
+		
+		background.setBounds(0,0,600,400);
 		message.setBounds(100,50,400,120);
 		startButton.setBounds(200,200,200,50);
 		infoButton.setBounds(200,270,200,50);
 		exitButton.setBounds(200,340,200,50);
+		
+		background.setOpaque(false);
 
 		startButton.addActionListener(new StartButtonListener());
 		infoButton.addActionListener(new InfoButtonListener());
 		exitButton.addActionListener(new ExitButtonListener());
 
-		add(message);
-		add(startButton);
-		add(infoButton);
-		add(exitButton);
+		background.add(message);
+		background.add(startButton);
+		background.add(infoButton);
+		background.add(exitButton);
 	}
 
 	class StartButtonListener implements ActionListener{
