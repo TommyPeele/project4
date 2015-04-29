@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,8 +24,6 @@ public class StartScreen extends Screen{
 	public void initGUI(){
 		setBackground(Color.CYAN);
 
-
-
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
 		JLabel title = new JLabel("No Need for Speed !!!");
 		JButton startButton = new JButton("Start Game");
@@ -36,8 +35,8 @@ public class StartScreen extends Screen{
 
 		background.setBounds(0,0,600,400);
 		title.setBounds(100,20,400,80);
-		instructionButton.setBounds(200,200,200,40);
-		startButton.setBounds(200,250,200,40);
+		startButton.setBounds(200,200,200,40);
+		instructionButton.setBounds(200,250,200,40);
 		infoButton.setBounds(200,300,200,40);
 		exitButton.setBounds(200,350,200,40);
 
@@ -58,22 +57,19 @@ public class StartScreen extends Screen{
 		background.add(exitButton);
 	}
 
-	class StartButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class StartButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
 			game.setCurrentScreen(new GameScreen(game));
 			game.getContentPane().add(game.getCurrentScreen());
 			game.getContentPane().validate();
-			//requestFocusInWindow();
 			game.start();
 			game.getCurrentScreen().requestFocusInWindow();
 		}
 	}
 
-	class InstructionButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class InstructionButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
 			game.setCurrentScreen(new InstructionScreen(game));
 			game.getContentPane().add(game.getCurrentScreen());
@@ -82,9 +78,8 @@ public class StartScreen extends Screen{
 		}
 	}
 
-	class InfoButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class InfoButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
 			game.setCurrentScreen(new InfoScreen(game));
 			game.getContentPane().add(game.getCurrentScreen());
@@ -93,9 +88,8 @@ public class StartScreen extends Screen{
 		}
 	}
 
-	class ExitButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
+	class ExitButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			System.exit(ABORT);
 		}
 	}

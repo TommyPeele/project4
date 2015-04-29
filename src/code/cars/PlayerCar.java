@@ -1,4 +1,5 @@
 package code.cars;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -7,7 +8,7 @@ import code.TextEntry;
 
 public class PlayerCar extends Car{
 
-	public static int DEFAULT_X = 285; //Player car starts in center lane
+	public static int DEFAULT_X = 283; //Player car starts in center lane
 	public static int DEFAULT_Y = 310; //Player car stays at bottom of screen as cars drive towards it
 	
 	private int velocity = 0; //-1 is moving left, 0 is at rest, 1 is moving right

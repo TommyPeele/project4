@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
@@ -36,11 +37,11 @@ public class InfoScreen extends Screen{
 
 		setLayout(null);
 
-		webQuote.setBounds(100,10, 400,100);
-		webButton.setBounds(200,120, 200,30);
-		multiQuote.setBounds(100,160, 400,100);
-		multiButton.setBounds(100,270,400,30);
-		startButton.setBounds(200,320,200,50);
+		webQuote.setBounds(100, 10, 400, 100);
+		webButton.setBounds(200, 120, 200, 30);
+		multiQuote.setBounds(100, 160, 400, 100);
+		multiButton.setBounds(100, 270, 400, 30);
+		startButton.setBounds(200, 320, 200, 50);
 
 		webButton.addActionListener(new WebButtonListener());
 		multiButton.addActionListener(new MultiButtonListener());

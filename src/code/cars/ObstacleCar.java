@@ -1,4 +1,5 @@
 package code.cars;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -13,13 +14,13 @@ public class ObstacleCar extends Car{
 		lane = (int)(Math.random() * 3);
 		switch(lane){
 		case 0:
-			x = 185;
+			x = 183;
 			break;
 		case 1:
-			x = 285;
+			x = 283;
 			break;
 		case 2:
-			x = 385;
+			x = 383;
 			break;
 		default:
 			break;

@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -55,7 +56,6 @@ public class InstructionScreen extends Screen{
 		
 		instruction.setOpaque(true);
 		policeCarLabel.setOpaque(false);
-		
 		
 		JLabel ObstCar = new JLabel();
 		ObstCar.setBackground(Color.RED);

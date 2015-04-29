@@ -1,4 +1,5 @@
 package code;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -16,10 +17,7 @@ public class Notification{
 	}
 
 	public void paint(Graphics2D graphic2D){
-		//System.out.println(tick);
-
-		if(tick < 10 && tick < 20)
-		{
+		if(tick < 10 && tick < 20){
 			graphic2D.setColor(Color.WHITE);
 			graphic2D.fillOval(12, 4, 50, 50);
 			graphic2D.setColor(Color.RED);
@@ -27,13 +25,9 @@ public class Notification{
 			tick++;
 		}
 		else if(tick >= 10 && tick < 20)
-		{
 			tick++;
-		}
 		else if(tick >= 20)
 			tick = 0;
 	}
-
-	//public void blink(){}
 
 }

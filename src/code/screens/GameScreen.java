@@ -1,4 +1,5 @@
 package code.screens;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -8,8 +9,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
-
-import javax.swing.JLabel;
 
 import code.Dirt;
 import code.Game;
@@ -32,7 +31,6 @@ public class GameScreen extends Screen{
 	private TextEntry textEntry;
 	private Notification notification;
 
-	private JLabel score;
 	private PoliceCar policeCar;
 
 	private ArrayList<Dirt> dirtBlocks;
@@ -71,13 +69,13 @@ public class GameScreen extends Screen{
 		playerCar = new PlayerCar();
 		obstacleCars = new ArrayList<ObstacleCar>();
 
-		obstacleCars.add(new ObstacleCar(185, -400));
-		obstacleCars.add(new ObstacleCar(285, -700));
-		obstacleCars.add(new ObstacleCar(385, -1000));
-		obstacleCars.add(new ObstacleCar(185, -900));
-		obstacleCars.add(new ObstacleCar(285, -500));
+		obstacleCars.add(new ObstacleCar(183, -400));
+		obstacleCars.add(new ObstacleCar(283, -700));
+		obstacleCars.add(new ObstacleCar(383, -1000));
+		obstacleCars.add(new ObstacleCar(183, -900));
+		obstacleCars.add(new ObstacleCar(283, -500));
 
-		policeCar = new PoliceCar(180, -800);
+		policeCar = new PoliceCar(183, -800);
 
 		textEntry = new TextEntry(this);
 		textEntry.chooseTextMessage(); //Choose the first message
