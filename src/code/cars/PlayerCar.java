@@ -4,7 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+
+/*
+ * This is our Player Car which the user controls, it stems from Car
+ */
+
 import code.TextEntry;
+
 
 public class PlayerCar extends Car{
 
@@ -23,6 +29,7 @@ public class PlayerCar extends Car{
 		super(x, y);
 	}
 
+		//Key Pressed Events to Control the Car
 	public void keyPressed(KeyEvent event){
 		if(event.getKeyCode() == KeyEvent.VK_LEFT)
 			if(lane > 0 && velocity == 0)
@@ -31,7 +38,8 @@ public class PlayerCar extends Car{
 			if(lane < 2 && velocity == 0)
 				velocity = 1;
 	}
-
+		
+		//Moves the Car right or left depending on its velocity member
 	public void move(){
 		switch(velocity){
 		case -1:
@@ -57,17 +65,19 @@ public class PlayerCar extends Car{
 		}
 	}
 
+		//Checks Collision with Obstacle Car
 	public boolean checkCollision(ObstacleCar obstacleCar){
 		return getBounds().intersects(obstacleCar.getBounds());
 	}
 
+		//Checks Detection from Police Car
 	public boolean checkPoliceDetection(PoliceCar policeCar, TextEntry textEntry){
 		if(y == policeCar.getY() && textEntry.isVisible())
 			return true;
 		else
 			return false;
 	}
-	
+		
 	@Override
 	public void setPaintColor(Graphics2D graphic2D){
 		graphic2D.setColor(Color.GREEN);

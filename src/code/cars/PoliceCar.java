@@ -2,12 +2,20 @@ package code.cars;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+/*
+ * Police Car object that stems from Car class
+ */
+
 public class PoliceCar extends ObstacleCar{
 
+	private final static int speed = 10;
+	
+		//Constructor
 	public PoliceCar(int x, int y){
 		super(x, y);
 	}
 
+		//Moves car according to speed
 	@Override
 	public void move(){
 		if(y == 500){
@@ -15,7 +23,7 @@ public class PoliceCar extends ObstacleCar{
 			chooseLane();
 		}
 		else
-			y = y + 10;
+			y = y + speed;
 	}
 	
 	@Override

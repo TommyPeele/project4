@@ -5,7 +5,13 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+
+/*
+ * Our Abstract Screen class that is root for GameScreen, GameOverScreen, InfoScreen, and InstructionScreen
+ */
+
 import code.Game;
+
 
 public abstract class Screen extends JPanel implements Runnable{
 

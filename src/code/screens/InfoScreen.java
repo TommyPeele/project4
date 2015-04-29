@@ -13,27 +13,43 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+
+/*
+ * This Information Screen contains all useful links to take the user to websites containing info
+ */
+
 import code.Game;
+
 
 public class InfoScreen extends Screen{
 
 	private static final long serialVersionUID = 0;
 
+		//Constructor that initializes GUI
 	public InfoScreen(Game game){
 		super(game);
 		initGUI();
 	}
 
 	public void initGUI(){
+<<<<<<< HEAD
+		setBackground(Color.CYAN);		
+			
+			//Buttons to take User to Sites
+=======
 			
 		JLabel background = new JLabel(new ImageIcon("car-accident.jpg"));
+>>>>>>> bb43b4ce3650ee2839ece0905f7378288f3a55a7
 		JButton webButton = new JButton("Learn More Statistics Here");
 		JButton multiButton = new JButton("Learn More About The Dangers of Multitasking Here");
-
+		
+			//Quotes that inform User about dangers of Texting and Driving
 		JLabel webQuote = new JLabel("<html>13% of Drivers aged 18-20 involved in car wrecks admitted to talking or texting on the time of their crash.</html>");
 		webQuote.setFont(new Font("Serif", Font.BOLD, 16));
 		JLabel multiQuote = new JLabel("<html>Multitasking doesn't just slow you down and increase the number of mistakes you make; it temporarily changes the way your brain works.<html>");
 		multiQuote.setFont(new Font("Serif", Font.BOLD, 16));
+		
+			//Return to Main Screen
 		JButton startButton = new JButton("Return to Main Screen");
 
 		setLayout(null);
@@ -63,8 +79,14 @@ public class InfoScreen extends Screen{
 		background.add(startButton);
 	}
 
+		/*
+		 * Nested Classes that implement Action Listeners for Buttons
+		 */
+	
+		//Web Button that takes to link
 	class WebButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
+				//URL, converts to URI object for parsing
 			String link = "http://www.textinganddrivingsafety.com/texting-and-driving-stats/";
 			try{
 				URI myUri = new URI(link);
@@ -79,6 +101,7 @@ public class InfoScreen extends Screen{
 		}
 	}
 
+		//Button that takes to site about MultiTasking
 	class MultiButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String link = "http://www.brainfacts.org/sensing-thinking-behaving/awareness-and-attention/articles/2013/the-multitasking-mind/";
@@ -95,6 +118,7 @@ public class InfoScreen extends Screen{
 		}
 	}
 
+		//Button that goes to Start Screen
 	class StartButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			game.getContentPane().removeAll();
@@ -104,6 +128,7 @@ public class InfoScreen extends Screen{
 		}
 	}
 
+		//Opens LINK
 	private static void open(URI uri){
 		if(Desktop.isDesktopSupported()){
 			try{
