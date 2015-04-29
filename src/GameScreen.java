@@ -120,7 +120,7 @@ public class GameScreen extends Screen{
 		graphic2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 		textEntry.paint(graphic2D);
-		textEntry.setVisFalse();
+		textEntry.setVisible(false);
 	}
 
 	@Override

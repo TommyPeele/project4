@@ -79,8 +79,8 @@ public class TextEntry{
 		return visible;
 	}
 
-	public void setVisFalse(){
-		visible = false;
+	public void setVisible(boolean visible){
+		this.visible = visible;
 	}
 
 	public void keyPressed(KeyEvent event){

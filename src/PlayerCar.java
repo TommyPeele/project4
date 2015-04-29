@@ -69,4 +69,12 @@ public class PlayerCar extends Car{
 		graphic2D.setColor(Color.GREEN);
 	}
 
+	public int getVelocity(){
+		return velocity;
+	}
+
+	public void setVelocity(int velocity){
+		this.velocity = velocity;
+	}
+
 }
